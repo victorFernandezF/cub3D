@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/07 13:55:53 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/07 16:25:59 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <stdbool.h>
 # include <math.h>
 
 # define DWIN_X 640
@@ -53,6 +54,8 @@ typedef struct s_core
 //Init fuctions
 t_core	cb_init(char **argv);
 char	**cb_getfile(char *argv);
+void	cb_gettext(t_mapconf *mapconf, char *line);
+void	cb_getcolors(t_mapconf *mapconf, char *line);
 int		trgb(int t, int r, int g, int b);
 
 //Utils chars
