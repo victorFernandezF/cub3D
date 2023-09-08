@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/07 16:25:59 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/08 14:48:16 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,24 +52,29 @@ typedef struct s_core
 
 
 //Init fuctions
-t_core	cb_init(char **argv);
-char	**cb_getfile(char *argv);
-void	cb_gettext(t_mapconf *mapconf, char *line);
-void	cb_getcolors(t_mapconf *mapconf, char *line);
-int		trgb(int t, int r, int g, int b);
+t_core		cb_init(char **argv);
+char		**cb_getfile(char *argv);
+t_mapconf	cb_getmapconf(char **file);
+void		cb_getcolors(t_mapconf *mapconf, char *line);
+int			trgb(int t, int r, int g, int b);
 
 //Utils chars
-int		cb_strlen(char *s);
+int			cb_strlen(char *s);
+bool		cb_isnum(char c);
+bool		cb_isspace(char c);
+bool		cb_emptyln(char *str);
 
 //Utils memory
-void	cb_freemat(char **mat);
-void	cb_freemat_rev(char **mat, int i);
+void		cb_freemat(char **mat);
+void		cb_freemat_rev(char **mat, int i);
+void		cb_freecore(t_core *core);
 
 //Utils errors
-void	cb_fail(char *str);
-void	cb_failrows(char **map, int i, int fd);
+void		cb_fail(char *str);
+void		cb_failrows(char **map, int i, int fd);
 
 //utils extra
-void	printmat(char **mat);
+void		printmat(char **mat);
+void		cb_printmc(t_mapconf *mapconf);
 
 #endif

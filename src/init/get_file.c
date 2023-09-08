@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:52:03 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/07 15:34:21 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/08 12:37:14 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	cb_mrows(char *argv)
 	s = get_next_linem(fd);
 	while (s)
 	{
-		if (s[0] != '\n')
+		if (!cb_emptyln(s))
 			rows++;
 		free(s);
 		s = get_next_linem(fd);
@@ -79,7 +79,7 @@ char	**cb_getfile(char *argv)
 	while (i < cb_mrows(argv))
 	{
 		s = get_next_linem(fd);
-		if (s[0] != '\n')
+		if (!cb_emptyln(s))
 		{
 			file[i] = cb_fillrows(s);
 			if (!file[i])

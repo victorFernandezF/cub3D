@@ -6,15 +6,44 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:50:58 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/07 16:25:47 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/08 13:12:43 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-void	cb_gettext(t_mapconf *mapconf, char *line)
+bool	cb_isnum(char c)
 {
-	
+	if (c >= '0' && c <= '9')
+		return (true);
+	else
+		return (false);
+}
+
+bool	cb_isspace(char c)
+{
+	if ((c > 8 && c < 14) || c == 32)
+		return (true);
+	else
+		return (false);
+}
+
+bool	cb_emptyln(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str[i] == '\n')
+		return (true);
+	while (str[i])
+	{
+		if (!cb_isspace(str[i]) && str[i] != '\n')
+			return (false);
+		if (str[i] == '\n')
+			return (true);
+		i++;
+	}
+	return (true);
 }
 
 int	cb_strlen(char *s)
@@ -37,4 +66,21 @@ void	printmat(char **mat)
 		ft_printf("str: %s\n", mat[i]);
 		i++;
 	}
+}
+
+void	cb_printmc(t_mapconf *mapconf)
+{
+	printf("\n\n");
+	if (mapconf->c_color)
+		printf("%d\n", mapconf->c_color);
+	if (mapconf->f_color)
+		printf("%d\n", mapconf->f_color);
+	if (mapconf->n_file)
+		printf("<%s>\n", mapconf->n_file);
+	if (mapconf->s_file)
+		printf("<%s>\n", mapconf->s_file);
+	if (mapconf->e_file)
+		printf("<%s>\n", mapconf->e_file);
+	if (mapconf->w_file)
+		printf("<%s>\n", mapconf->w_file);
 }
