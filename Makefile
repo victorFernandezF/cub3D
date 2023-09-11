@@ -1,11 +1,13 @@
 SRC = 		src/cub3d.c \
             src/init/init.c \
             src/init/get_mapconf.c \
+			src/init/check_params.c \
             src/init/get_file.c \
             src/utils/utils_char.c \
             src/utils/utils_color.c \
             src/utils/utils_error.c \
-            src/utils/utils_mem.c
+            src/utils/utils_mem.c \
+			src/utils/cb_split.c
 
 
 OSRC = $(SRC:.c=.o)

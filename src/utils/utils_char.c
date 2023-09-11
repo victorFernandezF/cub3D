@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:50:58 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/08 13:12:43 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:24:02 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	printmat(char **mat)
 	i = 0;
 	while (mat[i])
 	{
-		ft_printf("str: %s\n", mat[i]);
+		ft_printf("str: <%s>\n", mat[i]);
 		i++;
 	}
 }
@@ -72,9 +72,9 @@ void	cb_printmc(t_mapconf *mapconf)
 {
 	printf("\n\n");
 	if (mapconf->c_color)
-		printf("%d\n", mapconf->c_color);
+		printf("%d -> %X\n", mapconf->c_color, mapconf->c_color);
 	if (mapconf->f_color)
-		printf("%d\n", mapconf->f_color);
+		printf("%d -> %X\n", mapconf->f_color, mapconf->f_color);
 	if (mapconf->n_file)
 		printf("<%s>\n", mapconf->n_file);
 	if (mapconf->s_file)

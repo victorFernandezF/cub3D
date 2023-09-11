@@ -1,0 +1,51 @@
+str: 20
+str: 30
+str: 40
+str: 200
+str: 300
+str: 300
+str: NO textures/test/north.xpm
+str: SO textures/test/south.xpm
+str:                         WE textures/test/west.xpm
+str:         EA textures/test/east.xpm
+str:         F 20,           30,             40
+str: C 200,          300,300 
+str: 11111
+str: 10001
+str: 10S01
+str: 10001
+str: 10001
+str: 10001
+str: 11001
+str: 10001
+str: 10001
+str: 10001
+str: 10001
+str: 10001
+str: 11111
+leaks Report Version: 4.0
+Process 2834: 809 nodes malloced for 72 KB
+Process 2834: 0 leaks for 0 total leaked bytes.
+
+line: NO textures/test/north.xpm
+line: SO textures/test/south.xpm
+line:                         WE textures/test/west.xpm
+line:         EA textures/test/east.xpm
+line:         F 20,           30,             40
+ptr map: 0x7ffee7a38808
+Entra:         F 20,           30,             40
+split: 
+
+line: C 200,          300,300 
+ptr map: 0x7ffee7a38808
+Entra: C 200,          300,300 
+split: 
+
+
+
+-1
+1318440
+<textures/test/north.xpm>
+<textures/test/south.xpm>
+<textures/test/east.xpm>
+<textures/test/west.xpm>

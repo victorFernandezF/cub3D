@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:08:08 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/08 12:55:32 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:41:54 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 void	cb_divfile(t_core *core)
 {
 	core->mapconf = cb_getmapconf(core->file);
+	if (!cb_check_params(core))
+	{
+		ft_putstr_fd("Params error, exiting\n", 2);
+		cb_freecore(core);
+		exit (1);
+	}
 }
 
 t_core	cb_init(char **argv)

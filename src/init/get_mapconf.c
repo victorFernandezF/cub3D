@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 10:57:35 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/08 13:31:11 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:17:58 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,7 @@ unsigned char	cb_isparam(char *line)
 	while (line[i])
 	{
 		while (cb_isspace(line[i]))
-		{
 			i++;
-			//continue ;
-		}
 		if ((line[i] == 'F' && cb_isspace(line[i + 1]))
 			|| (line[i] == 'C' && cb_isspace(line[i + 1])))
 			return (2);

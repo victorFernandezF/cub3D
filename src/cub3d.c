@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:03:35 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/08 13:19:46 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:20:52 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2 || (argc == 2 && !argv[1]))
 	{
-		printf("Error\nNecesario mapa .cub\n");
+		printf("Error\nNeeded .cub map\n");
 		return (0);
 	}
 	atexit(ft_leaks);
@@ -31,5 +31,4 @@ int	main(int argc, char **argv)
 	printmat(core.file);
 	cb_printmc(&(core.mapconf));
 	cb_freecore(&core);
-	//cb_freemat(core.file);
 }

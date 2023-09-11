@@ -20,7 +20,7 @@ SO textures/test/south.xpm
         EA textures/test/east.xpm
 
         F 20,           30,             40
-C 200,          200,200
+C 50,          100,200
 
 11111
 10001

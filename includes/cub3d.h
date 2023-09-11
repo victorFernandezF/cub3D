@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/08 14:48:16 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:52:55 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,19 @@ typedef struct s_core
 
 //Init fuctions
 t_core		cb_init(char **argv);
+void		cb_extcheck_map(char *str);
 char		**cb_getfile(char *argv);
 t_mapconf	cb_getmapconf(char **file);
 void		cb_getcolors(t_mapconf *mapconf, char *line);
 int			trgb(int t, int r, int g, int b);
+bool		cb_check_params(t_core *core);
 
 //Utils chars
 int			cb_strlen(char *s);
 bool		cb_isnum(char c);
 bool		cb_isspace(char c);
 bool		cb_emptyln(char *str);
+char		**cb_split(char const *s, char c);
 
 //Utils memory
 void		cb_freemat(char **mat);

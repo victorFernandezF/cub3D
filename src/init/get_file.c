@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:52:03 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/08 12:37:14 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:54:04 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ int	cb_getfd(char *file)
 {
 	int	fd;
 
+	cb_extcheck_map(file);
 	fd = open(file, O_RDONLY);
 	if (fd < 1)
-		cb_fail("Error\nFailed open file\n");
+		cb_fail("Error\nFailed open map file\n");
 	return (fd);
 }
 

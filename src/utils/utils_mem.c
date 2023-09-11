@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:48:16 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/08 13:10:37 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:19:41 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 void	cb_freecore(t_core *core)
 {
 	cb_freemat(core->file);
-	/*if (core->mapconf.c_color)
-		free(core->mapconf.c_color);
-	if (core->mapconf.f_color)
-		free(core->mapconf.f_color);*/
 	if (core->mapconf.e_file)
 		free(core->mapconf.e_file);
 	if (core->mapconf.w_file)
