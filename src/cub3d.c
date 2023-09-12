@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:03:35 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/11 12:20:52 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/12 10:57:04 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ int	main(int argc, char **argv)
 	core = cb_init(argv);
 	printmat(core.file);
 	cb_printmc(&(core.mapconf));
+	//printf("MAP: \n");
+	//printmat(core.map);
 	cb_freecore(&core);
 }

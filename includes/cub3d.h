@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/11 12:52:55 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/12 10:45:25 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@
 # define DWIN_X 640
 # define DWIN_Y 480
 
+//Size map struct for verification
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}	t_point;
+
+//Map configuration struct
 typedef struct s_mapconf
 {
 	char	*n_file;
@@ -38,7 +46,7 @@ typedef struct s_mapconf
 	int		map_y;
 }	t_mapconf;
 
-
+//Main struct
 typedef struct s_core
 {
 	void		*mlx;
@@ -59,6 +67,8 @@ t_mapconf	cb_getmapconf(char **file);
 void		cb_getcolors(t_mapconf *mapconf, char *line);
 int			trgb(int t, int r, int g, int b);
 bool		cb_check_params(t_core *core);
+char		**cb_getmap(char **file);
+char		**cb_getmap_fill(char **file);
 
 //Utils chars
 int			cb_strlen(char *s);
