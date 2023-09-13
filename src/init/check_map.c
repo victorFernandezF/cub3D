@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:21:47 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/13 14:54:56 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/13 18:29:12 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,21 @@ t_point	*cb_get_begin(char **map)
 	return (begin);
 }
 
-/*void	cb_closecheck(t_core *core)
+void	cb_closecheck(t_core *core)
 {
-	int		p;
+	//int		p;
 	t_point	size;
-	t_point	begin;
+	t_point	*begin;
 	char	**tmp;
 
 	tmp = cb_getmap_fill(core->file);
 	size.x = core->mapconf.map_x;
 	size.y = core->mapconf.map_y;
-	begin = *(cb_get_begin(tmp));
-	tmp[begin.y][begin.x] = 'Z';
-	//p = core->prizes;
+	begin = cb_get_begin(tmp);
+	printf("y: %d, x: %d\n", begin->y, begin->x);
+	cb_freemat(tmp);
+	free(begin);
+	/*p = core->prizes;
 	if (sl_ffc(tmp, size, begin, &p))
 	{
 		sl_freemat(tmp);
@@ -66,8 +68,8 @@ t_point	*cb_get_begin(char **map)
 	{
 		sl_freemat(tmp);
 		sl_failfree("Error\nNot possible take all collectables\n", core);
-	}
-}*/
+	}*/
+}
 
 bool	cb_chars_map(char **map)
 {
@@ -75,23 +77,12 @@ bool	cb_chars_map(char **map)
 	int	y;
 	int	player;
 
-	x = 0;
-	y = 0;
+	y = 5;
 	player = 0;
-	printf("\n");
-	while (map[y])
+	while (map[++y])
 	{
-		while (map[y][x])
-		{
-			printf("%c", map[y][x]);
-			x++;
-		}
-		printf("\n");
-		y++;
-	}
-	while (map[y])
-	{
-		while (map[y][x])
+		x = -1;
+		while (map[y][++x])
 		{
 			if (cb_charsallow_map(map[y][x]) || cb_charsallow_play(map[y][x]))
 			{
@@ -99,19 +90,19 @@ bool	cb_chars_map(char **map)
 					player++;
 			}
 			else
-			{
-				printf("line: <%s>\n", map[y]);
-				printf("map[%d][%d]\n", y, x);
 				return (cb_failchar(map[y][x]));
-			}
-			x++;
 		}
-		y++;
 	}
 	return (cb_check_players(player));
 }
 
-bool	cb_check_map(char **map)
+bool	cb_check_map(char **file)
 {
-	return (cb_chars_map(map));
+	char	**tmp;
+	bool	val;
+
+	tmp = cb_getmap(file);
+	val = cb_chars_map(tmp);
+	free(tmp);
+	return (val);
 }
