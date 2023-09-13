@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 10:57:35 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/11 12:17:58 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/13 12:22:40 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ unsigned char	cb_isparam(char *line)
 	int	i;
 
 	i = 0;
-	printf("line: %s\n", line);
 	while (line[i])
 	{
 		while (cb_isspace(line[i]))

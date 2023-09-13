@@ -8,7 +8,8 @@ SRC = 		src/cub3d.c \
 			src/utils/utils_color.c \
 			src/utils/utils_error.c \
 			src/utils/utils_mem.c \
-			src/utils/cb_split.c
+			src/utils/cb_split.c \
+			src/utils/utils_map.c
 
 
 OSRC = $(SRC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/12 10:45:25 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:03:35 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ int			cb_strlen(char *s);
 bool		cb_isnum(char c);
 bool		cb_isspace(char c);
 bool		cb_emptyln(char *str);
+char		*cb_fillrows(char *s);
+char		*cb_fillrows_full(char *s, int size);
 char		**cb_split(char const *s, char c);
 
 //Utils memory

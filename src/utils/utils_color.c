@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:57:38 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/11 12:17:30 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/13 12:23:27 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	cb_makecolor(char *str)
 	int		i;
 
 	cmat = cb_split(str, ',');
-	printmat(cmat);
 	r = -1;
 	g = -1;
 	b = -1;

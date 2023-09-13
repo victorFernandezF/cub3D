@@ -6,49 +6,12 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 09:44:54 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/12 10:53:47 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:09:05 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-int	cb_size_y(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-		i++;
-	return (i);
-}
-
-int	cb_size_x(char **map)
-{
-	printf("%p\n", map);
-	return (0);
-}
-
-int	cb_maxx(char **file)
-{
-	int	i;
-	int	j;
-	int	m;
-
-	i = 0;
-	m = 0;
-	while (file[i])
-	{
-		j = 0;
-		while (file[i][j])
-			j++;
-		printf("j: %d\n", j);
-		if (j > m)
-			m = j;
-		i++;
-	}
-	printf("maxx: %d\n", m);
-	return (m);
-}
 /*void	cb_closecheck(t_core *core)
 {
 	int		p;
@@ -81,7 +44,6 @@ char	**cb_getmap_fill(char **file)
 	char	**map;
 	int		i;
 	int		j;
-	int		k;
 
 	i = 0;
 	while (file[i])
@@ -91,13 +53,7 @@ char	**cb_getmap_fill(char **file)
 	j = 0;
 	while (file[i])
 	{
-		k = -1;
-		map[j] = (char *)malloc((cb_maxx(file) + 1) * sizeof(char));
-		while (file[i][++k])
-			map[j][k] = file[i][k];
-		while (k <= cb_maxx(file))
-			map[j][k++] = '*';
-		map[j][k] = '\0';
+		map[j] = cb_fillrows_full(file[i], cb_maxx(file));
 		i++;
 		j++;
 	}
@@ -110,7 +66,6 @@ char	**cb_getmap(char **file)
 	char	**map;
 	int		i;
 	int		j;
-	int		k;
 
 	i = 0;
 	while (file[i])
@@ -120,11 +75,7 @@ char	**cb_getmap(char **file)
 	j = 0;
 	while (file[i])
 	{
-		k = -1;
-		map[j] = (char *)malloc((ft_strlen(file[i] + 1) * sizeof(char)));
-		while (file[i][++k])
-			map[j][k] = file[i][k];
-		map[j][k] = '\0';
+		map[j] = cb_fillrows(file[i]);
 		i++;
 		j++;
 	}
