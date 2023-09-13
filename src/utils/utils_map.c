@@ -6,11 +6,25 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 12:58:54 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/13 13:08:59 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:16:41 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+bool	cb_charsallow_play(char c)
+{
+	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
+		return (true);
+	return (false);
+}
+
+bool	cb_charsallow_map(char c)
+{
+	if (c == '1' || c == '0' || c == ' ')
+		return (true);
+	return (false);
+}
 
 int	cb_maxx(char **file)
 {
@@ -37,7 +51,6 @@ char	*cb_fillrows_full(char *s, int size)
 	char	*tmp;
 	int		i;
 
-	printf("SIZE: %d\n", size);
 	tmp = (char *) malloc((size + 1) * sizeof(char));
 	if (!tmp)
 		return (NULL);
@@ -64,10 +77,4 @@ int	cb_size_y(char **map)
 	while (map[i])
 		i++;
 	return (i);
-}
-
-int	cb_size_x(char **map)
-{
-	printf("%p\n", map);
-	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/13 13:03:35 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:56:11 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ int			trgb(int t, int r, int g, int b);
 bool		cb_check_params(t_core *core);
 char		**cb_getmap(char **file);
 char		**cb_getmap_fill(char **file);
+bool		cb_check_map(char **map);
+bool		cb_chars_map(char **map);
 
 //Utils chars
 int			cb_strlen(char *s);
@@ -76,6 +78,7 @@ bool		cb_isnum(char c);
 bool		cb_isspace(char c);
 bool		cb_emptyln(char *str);
 char		*cb_fillrows(char *s);
+int			cb_maxx(char **file);
 char		*cb_fillrows_full(char *s, int size);
 char		**cb_split(char const *s, char c);
 

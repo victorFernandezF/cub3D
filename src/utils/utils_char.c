@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:50:58 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/11 12:24:02 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:00:20 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,30 @@ void	printmat(char **mat)
 	}
 }
 
+/*void	printmat(char **map)
+{
+	int	y;
+	int	x;
+
+	y = 0;
+	x = 0;
+	while (map[y])
+	{
+		while (map[y][x])
+		{
+			printf("%c", map[y][x]);
+			x++;
+		}
+		printf("\n");
+		y++;
+	}
+}*/
+
 void	cb_printmc(t_mapconf *mapconf)
 {
 	printf("\n\n");
-	if (mapconf->c_color)
-		printf("%d -> %X\n", mapconf->c_color, mapconf->c_color);
-	if (mapconf->f_color)
-		printf("%d -> %X\n", mapconf->f_color, mapconf->f_color);
+	printf("%d -> %X\n", mapconf->c_color, mapconf->c_color);
+	printf("%d -> %X\n", mapconf->f_color, mapconf->f_color);
 	if (mapconf->n_file)
 		printf("<%s>\n", mapconf->n_file);
 	if (mapconf->s_file)
@@ -83,4 +100,6 @@ void	cb_printmc(t_mapconf *mapconf)
 		printf("<%s>\n", mapconf->e_file);
 	if (mapconf->w_file)
 		printf("<%s>\n", mapconf->w_file);
+	printf("Map X: %d\n", mapconf->map_x);
+	printf("Map Y: %d\n", mapconf->map_y);
 }
