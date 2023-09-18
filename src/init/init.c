@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:08:08 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/18 11:31:52 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/18 15:47:41 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,18 @@ t_core	cb_init(char **argv)
 {
 	t_core	core;
 
+	core.file = NULL;
+	core.map = NULL;
+	core.mapconf.e_file = NULL;
+	core.mapconf.w_file = NULL;
+	core.mapconf.n_file = NULL;
+	core.mapconf.s_file = NULL;
 	core.file = cb_getfile(argv[1]);
+	if (!core.file[0])
+	{
+		ft_putstr_fd("Error\nEmpty file, exiting\n", 2);
+		exit (1);
+	}
 	cb_divfile(&core);
 	return (core);
 }

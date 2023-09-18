@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:49:39 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/13 14:14:20 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/18 15:38:52 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ bool	cb_check_players(int p)
 	}
 	if (p > 1)
 	{
-		ft_putstr_fd("Error\n Only one player allowed\n", 2);
+		ft_putstr_fd("Error\nOnly one player allowed\n", 2);
 		return (false);
 	}
 	return (true);
