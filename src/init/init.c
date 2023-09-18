@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:08:08 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/13 18:32:19 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/18 11:31:52 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,12 @@ void	cb_divfile(t_core *core)
 	core->map = cb_getmap_fill(core->file);
 	core->mapconf.map_y = cb_size_y(core->map);
 	core->mapconf.map_x = cb_maxx(core->map);
-	//cb_closecheck(core);
+	if (!cb_closecheck(core))
+	{
+		ft_putstr_fd("Map error, exiting\n", 2);
+		cb_freecore(core);
+		exit (1);
+	}
 }
 
 t_core	cb_init(char **argv)

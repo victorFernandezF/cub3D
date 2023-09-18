@@ -5,6 +5,7 @@ SRC = 		src/cub3d.c \
 			src/init/check_params.c \
 			src/init/get_map.c \
 			src/init/check_map.c \
+			src/init/check_wall.c \
 			src/utils/utils_char.c \
 			src/utils/utils_color.c \
 			src/utils/utils_error.c \
