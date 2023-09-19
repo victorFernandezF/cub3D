@@ -6,11 +6,37 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:48:16 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/19 16:11:04 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/19 16:20:42 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+void	cb_freemlx(t_core *core)
+{
+	mlx_destroy_window(core->mlx, core->win);
+	if (core->imgs.n)
+	{
+		mlx_destroy_image(core->mlx, core->imgs.n);
+		//free(core->imgs.n);
+	}
+	if (core->imgs.s)
+	{
+		mlx_destroy_image(core->mlx, core->imgs.s);
+		//free(core->imgs.s);
+	}
+	if (core->imgs.w)
+	{
+		mlx_destroy_image(core->mlx, core->imgs.w);
+		//free(core->imgs.w);
+	}
+	if (core->imgs.e)
+	{
+		mlx_destroy_image(core->mlx, core->imgs.e);
+		//free(core->imgs.e);
+	}
+	free(core->mlx);
+}
 
 void	cb_freecore(t_core *core)
 {
@@ -26,18 +52,7 @@ void	cb_freecore(t_core *core)
 		free(core->mapconf.n_file);
 	if (core->mapconf.s_file)
 		free(core->mapconf.s_file);
-	if (core->imgs.n)
-		mlx_destroy_image(core->mlx, core->imgs.n);
-		//free(core->imgs.n);
-	if (core->imgs.s)
-		mlx_destroy_image(core->mlx, core->imgs.s);
-		//free(core->imgs.s);
-	if (core->imgs.w)
-		mlx_destroy_image(core->mlx, core->imgs.w);
-		//free(core->imgs.w);
-	if (core->imgs.e)
-		mlx_destroy_image(core->mlx, core->imgs.e);
-		//free(core->imgs.e);
+	cb_freemlx(core);
 }
 
 void	cb_freemat(char **mat)
