@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/19 11:13:17 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/19 20:26:36 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ t_core		cb_init(char **argv);
 void		cb_extcheck_map(char *str);
 char		**cb_getfile(char *argv);
 t_mapconf	cb_getmapconf(char **file);
-void		cb_getcolors(t_mapconf *mapconf, char *line);
+void		cb_getcolors(t_mapconf *mapconf, char *line, char **file);
 int			trgb(int t, int r, int g, int b);
 bool		cb_check_params(t_core *core);
 char		**cb_getmap(char **file);

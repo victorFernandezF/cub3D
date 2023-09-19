@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:08:08 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/19 16:06:22 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/19 20:22:47 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,17 @@ t_mapconf	cb_init_mc(void)
 	mapconf.w_file = NULL;
 	mapconf.n_file = NULL;
 	mapconf.s_file = NULL;
-	mapconf.f_color = -1;
-	mapconf.c_color = -1;
+	mapconf.f_color = -2;
+	mapconf.c_color = -2;
 	mapconf.map_x = -1;
 	mapconf.map_y = -1;
 	return (mapconf);
+}
+
+void	cb_init_mlx(t_core *core)
+{
+	core->mlx = mlx_init();
+	core->win = mlx_new_window(core->mlx, DWIN_X, DWIN_Y, "Cub3D");
 }
 
 t_core	cb_init(char **argv)
@@ -76,10 +82,9 @@ t_core	cb_init(char **argv)
 	core.win_y = 0;
 	core.file = NULL;
 	core.map = NULL;
-	core.mapconf = cb_init_mc();
 	core.imgs = cb_init_img();
-	core.mlx = mlx_init();
-	core.win = mlx_new_window(core.mlx, DWIN_X, DWIN_Y, "Cub3D");
+	core.mlx = NULL;
+	core.win = NULL;
 	core.file = cb_getfile(argv[1]);
 	if (!core.file[0])
 	{
@@ -87,6 +92,7 @@ t_core	cb_init(char **argv)
 		exit (1);
 	}
 	cb_divfile(&core);
+	cb_init_mlx(&core);
 	cb_check_xpm(&core);
 	return (core);
 }

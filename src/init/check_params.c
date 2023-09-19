@@ -6,16 +6,11 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 12:24:51 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/11 13:24:41 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/19 19:00:21 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-/*bool	cb_xpmcheck(char *xpm)
-{
-
-}*/
 
 bool	cb_extcheck_text(char *str)
 {
@@ -95,10 +90,5 @@ bool	cb_check_params(t_core *core)
 		|| !cb_checkfile(core->mapconf.e_file)
 		|| !cb_checkfile(core->mapconf.w_file))
 		return (false);
-	/*if (!cb_xpmcheck(core->mapconf.n_file)
-		|| !cb_xpmcheck(core->mapconf.s_file)
-		|| !cb_xpmcheck(core->mapconf.e_file)
-		|| !cb_xpmcheck(core->mapconf.w_file))
-		return (false);*/
 	return (true);
 }

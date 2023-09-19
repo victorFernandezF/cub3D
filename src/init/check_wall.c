@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:22:27 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/19 09:25:29 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/19 18:01:27 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,9 +116,6 @@ void	cb_ff4(char **tab, t_point size, t_point begin, int *f)
 
 void	cb_ff(char **tab, t_point size, t_point begin, int *f)
 {
-	printf("tab\n");
-	printmat(tab);
-	printf("\n");
 	tab[begin.y][begin.x] = 'F';
 	if (begin.y - 1 >= 0 && (tab[begin.y - 1][begin.x] == '0'))
 		cb_ff1(tab, size, begin, f);

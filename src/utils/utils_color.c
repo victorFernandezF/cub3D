@@ -6,11 +6,13 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:57:38 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/13 12:23:27 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/19 20:26:20 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+void	cb_free_mc(t_mapconf *mapconf, char **file);
 
 int	trgb(int t, int r, int g, int b)
 {
@@ -48,15 +50,19 @@ int	cb_makecolor(char *str)
 	return (trgb(0, r, g, b));
 }
 
-void	cb_getcolors(t_mapconf *mapconf, char *line)
+void	cb_getcolors(t_mapconf *mapconf, char *line, char **file)
 {
 	int	i;
 
 	i = 0;
 	while (cb_isspace(line[i]))
 		i++;
-	if (line[i] == 'F' && cb_isspace(line[i + 1]))
+	if ((line[i] == 'F' && cb_isspace(line[i + 1]))
+		&& mapconf->f_color == -2)
 		mapconf->f_color = cb_makecolor(&line[i + 1]);
-	if (line[i] == 'C' && cb_isspace(line[i + 1]))
+	else if ((line[i] == 'C' && cb_isspace(line[i + 1]))
+		&& mapconf->c_color == -2)
 		mapconf->c_color = cb_makecolor(&line[i + 1]);
+	else
+		cb_free_mc(mapconf, file);
 }
