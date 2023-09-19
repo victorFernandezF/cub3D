@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/18 09:06:50 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/19 11:13:17 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 
 # define DWIN_X 640
 # define DWIN_Y 480
+
+# define IMGS_X 64
+# define IMGS_Y	64
 
 //Size map struct for verification
 typedef struct s_point
@@ -46,6 +49,17 @@ typedef struct s_mapconf
 	int		map_y;
 }	t_mapconf;
 
+//Images struct
+typedef struct s_img
+{
+	int		size_x;
+	int		size_y;
+	void	*n;
+	void	*s;
+	void	*w;
+	void	*e;
+}	t_img;
+
 //Main struct
 typedef struct s_core
 {
@@ -55,6 +69,7 @@ typedef struct s_core
 	int			win_y;
 	char		**file;
 	t_mapconf	mapconf;
+	t_img		imgs;
 	char		**map;
 }	t_core;
 
@@ -72,6 +87,7 @@ char		**cb_getmap_fill(char **file);
 bool		cb_check_map(char **map);
 bool		cb_chars_map(char **map);
 bool		cb_closecheck(t_core *core);
+void		cb_check_xpm(t_core *core);
 
 //Utils chars
 int			cb_strlen(char *s);

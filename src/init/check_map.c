@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:21:47 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/18 11:35:46 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/19 08:44:07 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,17 @@ bool	cb_closecheck(t_core *core)
 	size.y = core->mapconf.map_y;
 	begin = cb_get_begin(tmp);
 	cb_ff(tmp, size, begin, &f);
-	if (f == 0)
-	{
-		cb_freemat(tmp);
-		return (true);
-	}
-	else
+	if ((f != 0) || ((begin.x == 0 || begin.x == size.x)
+			|| (begin.y == 0 || begin.y == size.y)))
 	{
 		ft_putstr_fd("Error:\nMap not closed\n", 2);
 		cb_freemat(tmp);
 		return (false);
+	}
+	else
+	{
+		cb_freemat(tmp);
+		return (true);
 	}
 }
 

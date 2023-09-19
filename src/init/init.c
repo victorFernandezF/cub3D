@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:08:08 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/18 15:47:41 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/19 12:07:12 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,46 @@ void	cb_divfile(t_core *core)
 	}
 }
 
+t_img	cb_init_img(void)
+{
+	t_img	imgs;
+
+	imgs.size_x = IMGS_X;
+	imgs.size_y = IMGS_Y;
+	imgs.n = NULL;
+	imgs.s = NULL;
+	imgs.w = NULL;
+	imgs.e = NULL;
+	return (imgs);
+}
+
+t_mapconf	cb_init_mc(void)
+{
+	t_mapconf	mapconf;
+
+	mapconf.e_file = NULL;
+	mapconf.w_file = NULL;
+	mapconf.n_file = NULL;
+	mapconf.s_file = NULL;
+	mapconf.f_color = -1;
+	mapconf.c_color = -1;
+	mapconf.map_x = -1;
+	mapconf.map_y = -1;
+	return (mapconf);
+}
+
 t_core	cb_init(char **argv)
 {
 	t_core	core;
 
+	core.win_x = 0;
+	core.win_y = 0;
 	core.file = NULL;
 	core.map = NULL;
-	core.mapconf.e_file = NULL;
-	core.mapconf.w_file = NULL;
-	core.mapconf.n_file = NULL;
-	core.mapconf.s_file = NULL;
+	core.mapconf = cb_init_mc();
+	core.imgs = cb_init_img();
+	//core.mlx = mlx_init();
+	//core.win = mlx_new_window(core.mlx, DWIN_X, DWIN_Y, "Cub3D");
 	core.file = cb_getfile(argv[1]);
 	if (!core.file[0])
 	{
@@ -57,5 +87,6 @@ t_core	cb_init(char **argv)
 		exit (1);
 	}
 	cb_divfile(&core);
+	//cb_check_xpm(&core);
 	return (core);
 }
