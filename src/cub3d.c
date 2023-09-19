@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:03:35 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/18 11:41:50 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/19 16:08:36 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ int	main(int argc, char **argv)
 	atexit(ft_leaks);
 	core = cb_init(argv);
 	printcore(core);
+	mlx_destroy_window(core.mlx, core.win);
 	cb_freecore(&core);
 }
