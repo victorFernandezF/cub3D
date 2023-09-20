@@ -2,7 +2,6 @@ SRC = 		src/cub3d.c \
 			src/init/init.c \
 			src/init/get_file.c \
 			src/init/get_mapconf.c \
-			src/init/get_mapconf_fill.c \
 			src/init/check_params.c \
 			src/init/get_map.c \
 			src/init/check_map.c \

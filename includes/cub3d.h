@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/19 20:26:36 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/20 08:50:53 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ char		**cb_split(char const *s, char c);
 void		cb_freemat(char **mat);
 void		cb_freemat_rev(char **mat, int i);
 void		cb_freecore(t_core *core);
+void		cb_free_mc(t_mapconf *mapconf, char **file);
 
 //Utils errors
 void		cb_fail(char *str);

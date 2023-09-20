@@ -6,11 +6,26 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:48:16 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/19 18:45:10 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/20 08:51:03 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+void	cb_free_mc(t_mapconf *mapconf, char **file)
+{
+	(void)file;
+	ft_putstr_fd("Error\nDuplicate params\n", 2);
+	if (mapconf->e_file)
+		free(mapconf->e_file);
+	if (mapconf->w_file)
+		free(mapconf->w_file);
+	if (mapconf->n_file)
+		free(mapconf->n_file);
+	if (mapconf->s_file)
+		free(mapconf->s_file);
+	exit (1);
+}
 
 void	cb_freecore(t_core *core)
 {

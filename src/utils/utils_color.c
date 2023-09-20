@@ -6,13 +6,11 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:57:38 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/19 20:26:20 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/20 08:55:24 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
-void	cb_free_mc(t_mapconf *mapconf, char **file);
 
 int	trgb(int t, int r, int g, int b)
 {
