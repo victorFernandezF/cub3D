@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/20 08:50:53 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:10:26 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,15 @@ typedef struct s_img
 	void	*e;
 }	t_img;
 
+//Player struct
+typedef struct s_player
+{
+	t_point		position;
+	int			grade_orientation;
+	int			vision_grade;
+	int			height;
+}	t_player;
+
 //Main struct
 typedef struct s_core
 {
@@ -71,7 +80,9 @@ typedef struct s_core
 	t_mapconf	mapconf;
 	t_img		imgs;
 	char		**map;
+	t_player	player;
 }	t_core;
+
 
 
 //Init fuctions
@@ -112,5 +123,9 @@ void		cb_failrows(char **map, int i, int fd);
 //utils extra
 void		printmat(char **mat);
 void		cb_printmc(t_mapconf *mapconf);
+
+
+//player datas
+t_core init_player_datas(t_core core);
 
 #endif
