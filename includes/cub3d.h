@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/20 19:10:26 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/21 12:02:46 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ typedef struct s_img
 typedef struct s_player
 {
 	t_point		position;
+	t_point		grid_coord;
 	int			grade_orientation;
 	int			vision_grade;
 	int			height;
@@ -83,7 +84,8 @@ typedef struct s_core
 	t_player	player;
 }	t_core;
 
-
+# define G	"\x1B[32m"	// GREEN
+# define W	"\x1B[0m"	// WHITE
 
 //Init fuctions
 t_core		cb_init(char **argv);
