@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/21 12:02:46 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/21 18:32:57 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,25 @@ typedef struct s_img
 	void	*e;
 }	t_img;
 
+//Projection plane struct
+typedef struct s_plane
+{
+	int 		width;
+	int 		height;
+	t_point		center;
+	int			distance;
+}	t_plane;
+
 //Player struct
 typedef struct s_player
 {
 	t_point		position;
 	t_point		grid_coord;
-	int			grade_orientation;
-	int			vision_grade;
+	t_point		direction;
+	int			orientation_degree;
+	int			vision_degree;
 	int			height;
+	t_plane		plane;
 }	t_player;
 
 //Main struct
