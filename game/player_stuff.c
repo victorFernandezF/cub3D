@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:09:29 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/21 19:04:21 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/22 14:00:16 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ t_core get_degree(t_core core, int x, int y){
 	}
 	if (core.map[y][x] == 'S')
 	{
-		//printf("player char (%c)\n", core.map[y][x]);
 		core.player.orientation_degree = 270;
 		core.player.direction.x = 0;
 		core.player.direction.y = 1;
@@ -83,16 +82,13 @@ static void print_player_stuff(t_core core){
 	printf("%s   PLAYER STUFF   \n", G);
 	printf(" player height  (%i)\n", core.player.height);
 	printf(" player vision degree  (%i)\n", core.player.vision_degree);
-	printf(" player grid pos  (%i, %i)\n", core.player.grid_coord.x, core.player.grid_coord.y);
-	printf(" player real pos  (%i, %i)\n", core.player.position.x, core.player.position.y);
+	printf(" player grid pos  (%f, %f)\n", core.player.grid_coord.x, core.player.grid_coord.y);
+	printf(" player real pos  (%f, %f)\n", core.player.position.x, core.player.position.y);
 	printf(" player degree (%i)\n", core.player.orientation_degree);
-	printf(" player direction (%i, %i)%s\n\n", core.player.direction.x, core.player.direction.y ,W);
+	printf(" player direction (%f, %f)%s\n\n", core.player.direction.x, core.player.direction.y ,W);
 } 
 
-t_core init_player_datas(t_core core){
-	int width;
-	int height;
-	 
+t_core init_player_datas(t_core core){	 
 	core.player.height = IMGS_Y / 2;
 	core.player.vision_degree = 60;
 	core.player.grid_coord.x = get_pos(core.mapconf, core.map, 'x');
@@ -100,13 +96,10 @@ t_core init_player_datas(t_core core){
 	core.player.position.x = (IMGS_X * core.player.grid_coord.x) + IMGS_X / 2;
 	core.player.position.y = (IMGS_Y * core.player.grid_coord.y) + IMGS_Y / 2;
 	core = get_degree(core, core.player.grid_coord.x, core.player.grid_coord.y);
-	width = 320;
-	height = 200;
-	core.player.plane.width = width;
-	core.player.plane.height = height;
-	core.player.plane.center.x = width / 2;
-	core.player.plane.center.y = height / 2;
-	core.player.plane.distance = 160 / tan(30); // No parece funcionar bien.
+	core.player.plane.x = 0;
+	core.player.plane.y = 0.66;
+	
 	print_player_stuff(core);
+
 	return (core);
 }

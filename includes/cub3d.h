@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/21 18:32:57 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/22 14:06:48 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,13 @@ typedef struct s_point
 	int	y;
 }	t_point;
 
+// floats coords
+typedef struct s_vector
+{
+	double	x;
+	double	y;
+}	t_vector;
+
 //Map configuration struct
 typedef struct s_mapconf
 {
@@ -60,25 +67,16 @@ typedef struct s_img
 	void	*e;
 }	t_img;
 
-//Projection plane struct
-typedef struct s_plane
-{
-	int 		width;
-	int 		height;
-	t_point		center;
-	int			distance;
-}	t_plane;
-
 //Player struct
 typedef struct s_player
 {
-	t_point		position;
-	t_point		grid_coord;
-	t_point		direction;
-	int			orientation_degree;
-	int			vision_degree;
-	int			height;
-	t_plane		plane;
+	t_vector		position;
+	t_vector		grid_coord;
+	t_vector		direction;
+	t_vector		plane;
+	int				orientation_degree;
+	int				vision_degree;
+	int				height;
 }	t_player;
 
 //Main struct
@@ -140,5 +138,6 @@ void		cb_printmc(t_mapconf *mapconf);
 
 //player datas
 t_core init_player_datas(t_core core);
+t_core rc_start(t_core core);
 
 #endif

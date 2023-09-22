@@ -13,7 +13,8 @@ SRC = 		src/cub3d.c \
 			src/utils/utils_mem.c \
 			src/utils/cb_split.c \
 			src/utils/utils_map.c \
-			game/player_stuff.c
+			game/player_stuff.c \
+			game/raycasting.c
 
 
 OSRC = $(SRC:.c=.o)
