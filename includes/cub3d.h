@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/22 14:06:48 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/25 11:08:57 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ typedef struct s_img
 //Player struct
 typedef struct s_player
 {
+	char			player;
 	t_vector		position;
 	t_vector		grid_coord;
 	t_vector		direction;
@@ -135,9 +136,9 @@ void		cb_failrows(char **map, int i, int fd);
 void		printmat(char **mat);
 void		cb_printmc(t_mapconf *mapconf);
 
-
 //player datas
-t_core init_player_datas(t_core core);
-t_core rc_start(t_core core);
+t_core		init_player_datas(t_core core);
+t_core		rc_start(t_core core);
+t_vector	sum_vectors(t_vector a, t_vector b);
 
 #endif
