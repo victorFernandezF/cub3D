@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:09:29 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/25 11:13:55 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/25 11:27:58 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ t_core	init_player_datas(t_core core)
 	core.player.position.x = (IMGS_X * core.player.grid_coord.x) + IMGS_X / 2;
 	core.player.position.y = (IMGS_Y * core.player.grid_coord.y) + IMGS_Y / 2;
 	core = get_degree(core, x, y);
+	core = get_cam(core);
 	print_player_stuff(core);
 	return (core);
 }
