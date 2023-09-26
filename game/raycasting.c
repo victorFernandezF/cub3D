@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:23:39 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/26 10:49:55 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/26 12:38:54 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static t_player	calculate_initial_ray_dir(t_player player, double cam)
 	player.ray_dir.y = player.direction.y + player.plane.y * cam;
 	player.map_pos.x = player.grid_coord.x;
 	player.map_pos.y = player.grid_coord.y;
+	player.hit = 0;
 	return (player);
 }
 
@@ -67,19 +68,50 @@ static t_player	calculate_side_dist(t_player player)
 	return (player);
 }
 
-t_player	rc_start(t_player player, t_mapconf map)
+static t_player	dda_algorithm(t_player player, char **map)
+{
+	int	hit;
+
+	hit = player.hit;
+	while (hit == 0)
+	{
+		if (player.side_dist.x < player.side_dist.y)
+		{
+			player.side_dist.x += player.delta_dist.x;
+			player.map_pos.x += player.step.x;
+			player.side = 0;
+		}
+		else
+		{
+			player.side_dist.y += player.delta_dist.y;
+			player.map_pos.y += player.step.y;
+			player.side = 1;
+		}
+		if (map[player.map_pos.x][player.map_pos.y] == '1')
+		{
+			player.hit = 1;
+			hit += 1;
+		}
+	}
+	return (player);
+}
+
+t_core	rc_start(t_core core)
 {
 	int			i;
 	double		cam_x;
 
 	i = -1;
-	while (++i < map.map_x)
+	while (++i < core.mapconf.map_x)
 	{
-		cam_x = 2 * i / (double)map.map_x - 1;
-		player = calculate_initial_ray_dir(player, cam_x);
-		player = calculate_delta_stuff(player);
-		player = calculate_side_dist(player);
-		//printf("test side: %.2f\n", player.side_dist.x);
+		cam_x = 2 * i / (double)core.mapconf.map_x - 1;
+		core.player = calculate_initial_ray_dir(core.player, cam_x);
+		core.player = calculate_delta_stuff(core.player);
+		core.player = calculate_side_dist(core.player);
+		core.player = dda_algorithm(core.player, core.map);
+		core.player = calculate_wall_dist(core.player);
+		core.player = calculate_height_line(core.player);
+		printf("wall: %.2f\n", core.player.wall_dist);
 	}
-	return (player);
+	return (core);
 }

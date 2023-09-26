@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/26 10:20:15 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/26 12:48:46 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 
 # define IMGS_X 64
 # define IMGS_Y	64
+
 
 //Size map struct for verification
 typedef struct s_point
@@ -72,7 +73,7 @@ typedef struct s_player
 {
 	char			player;
 	t_vector		position;
-	t_point			grid_coord;
+	t_vector		grid_coord;
 	t_vector		direction;
 	t_vector		plane;
 	t_vector		cam_start;
@@ -82,8 +83,10 @@ typedef struct s_player
 	t_vector		ray_dir;
 	t_vector		side_dist;
 	t_vector		delta_dist;
-	t_vector		wall_dist;
 	t_point			step;
+	double			wall_dist;
+	int				line_height;
+	t_point			line_points;
 	int				hit;
 	int				side;
 	int				orientation_degree;
@@ -149,10 +152,12 @@ void		cb_printmc(t_mapconf *mapconf);
 
 //player datas
 t_core		init_player_datas(t_core core);
-t_player	rc_start(t_player player, t_mapconf map);
+t_core		rc_start(t_core core);
 t_vector	sum_vectors(t_vector a, t_vector b);
 t_vector	sub_vectors(t_vector a, t_vector b);
 t_core		get_cam(t_core core);
+t_player	calculate_wall_dist(t_player player);
+t_player	calculate_height_line(t_player player);
 void		print_player_stuff(t_core core);
 
 #endif
