@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:03:35 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/26 13:20:45 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/26 13:38:38 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	cb_input(int key, t_core *core)
 int	main(int argc, char **argv)
 {
 	t_core	core;
-
 	if (argc != 2 || (argc == 2 && !argv[1]))
 	{
 		printf("Error\nNeeded .cub map\n");
