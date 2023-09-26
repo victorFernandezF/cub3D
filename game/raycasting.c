@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:23:39 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/26 12:38:54 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/26 13:21:08 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,11 @@ t_core	rc_start(t_core core)
 		core.player = dda_algorithm(core.player, core.map);
 		core.player = calculate_wall_dist(core.player);
 		core.player = calculate_height_line(core.player);
-		printf("wall: %.2f\n", core.player.wall_dist);
+		mlx_pixel_put(core.mlx, core.win, core.player.line_points.x,
+			core.player.line_points.y, core.mapconf.f_color);
+		printf("color: %i\nline: (%i, %i)\n", core.mapconf.f_color,
+			core.player.line_points.x,
+			core.player.line_points.y);
 	}
 	return (core);
 }

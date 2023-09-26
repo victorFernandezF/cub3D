@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:03:35 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/26 11:09:44 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/26 13:20:45 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	main(int argc, char **argv)
 	mlx_hook(core.win, 2, 0, cb_input, &core);
 	core = rc_start(core);
 	print_player_stuff(core);
-	cb_exit(&core);
+	//cb_exit(&core);
 	mlx_loop(core.mlx);
 	//cb_freecore(&core);
 	return (0);

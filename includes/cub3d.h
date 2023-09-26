@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/26 12:48:46 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/26 13:02:08 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ typedef struct s_core
 {
 	void		*mlx;
 	void		*win;
+	void		*img;
 	int			win_x;
 	int			win_y;
 	char		**file;
