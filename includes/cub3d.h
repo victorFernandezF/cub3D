@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/25 13:29:57 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/26 10:20:15 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,20 @@ typedef struct s_player
 {
 	char			player;
 	t_vector		position;
-	t_vector		grid_coord;
+	t_point			grid_coord;
 	t_vector		direction;
 	t_vector		plane;
 	t_vector		cam_start;
 	t_vector		cam_end;
 	t_vector		cam_center;
+	t_point			map_pos;
+	t_vector		ray_dir;
+	t_vector		side_dist;
+	t_vector		delta_dist;
+	t_vector		wall_dist;
+	t_point			step;
+	int				hit;
+	int				side;
 	int				orientation_degree;
 	int				vision_degree;
 	int				height;
@@ -141,7 +149,7 @@ void		cb_printmc(t_mapconf *mapconf);
 
 //player datas
 t_core		init_player_datas(t_core core);
-t_core		rc_start(t_core core);
+t_player	rc_start(t_player player, t_mapconf map);
 t_vector	sum_vectors(t_vector a, t_vector b);
 t_vector	sub_vectors(t_vector a, t_vector b);
 t_core		get_cam(t_core core);
