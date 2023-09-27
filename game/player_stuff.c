@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:09:29 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/25 13:29:40 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/27 12:35:29 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,21 +74,39 @@ t_core	get_degree(t_core core, int x, int y)
 	return (core);
 }
 
-void	print_player_stuff(t_core core)
+void	print_player_stuff(t_player player)
 {
 	printf("%s   PLAYER STUFF   \n", G);
-	printf(" player char  [%c]\n", core.player.player);
-	printf(" player height  (%i)\n", core.player.height);
-	printf(" player vision degree  (%i)\n", core.player.vision_degree);
+	printf(" player char  [%c]\n", player.player);
+	printf(" player height  (%i)\n", player.height);
 	printf(" player grid pos  (%.2f, %.2f)\n",
-		core.player.grid_coord.x, core.player.grid_coord.y);
+		player.grid_coord.x, player.grid_coord.y);
 	printf(" player real pos (%.2f, %.2f)\n",
-		core.player.position.x, core.player.position.y);
+		player.position.x, player.position.y);
 	printf(" player direction (%.2f, %.2f)\n",
-		core.player.direction.x, core.player.direction.y);
-	printf(" player degree (%i)\n", core.player.orientation_degree);
-	printf(" player plane (%.2f, %.2f)%s\n\n",
-		core.player.plane.x, core.player.plane.y, W);
+		player.direction.x, player.direction.y);
+	printf(" player plane (%.2f, %.2f)%s\n",
+		player.plane.x, player.plane.y, G);
+	printf(" player cam_start(%.2f, %.2f)%s\n",
+		player.cam_start.x, player.cam_start.y, G);
+	printf(" player cam_end(%.2f, %.2f)%s\n",
+		player.cam_end.x, player.cam_end.y, G);
+	printf(" player map pos(%i, %i)%s\n",
+		player.map_pos.x, player.map_pos.y, G);
+	printf(" player ray dir(%.2f, %.2f)%s\n",
+		player.ray_dir.x, player.ray_dir.y, G);
+	printf(" player side dist(%.2f, %.2f)%s\n",
+		player.side_dist.x, player.side_dist.y, G);
+	printf(" player delta dist(%.2f, %.2f)%s\n",
+		player.delta_dist.x, player.delta_dist.y, G);
+	printf(" player step(%i, %i)%s\n",
+		player.step.x, player.step.y, G);	
+	printf(" player wall dist (%.2f)%s\n",
+		player.wall_dist, G);
+	printf(" player line height(%i,%i)%s\n",
+		player.line_points.x, player.line_points.y, G);
+	printf(" player line points (%i, %i)%s\n\n",
+		player.line_points.x, player.line_points.y, W);
 }
 
 t_core	init_player_datas(t_core core)

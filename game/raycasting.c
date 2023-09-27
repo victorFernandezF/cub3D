@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:23:39 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/26 13:21:08 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/27 12:10:42 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ t_core	rc_start(t_core core)
 	int			i;
 	double		cam_x;
 
+	core.player.img = mlx_new_image(core.mlx, DWIN_X, DWIN_Y);
 	i = -1;
 	while (++i < core.mapconf.map_x)
 	{
@@ -111,11 +112,9 @@ t_core	rc_start(t_core core)
 		core.player = dda_algorithm(core.player, core.map);
 		core.player = calculate_wall_dist(core.player);
 		core.player = calculate_height_line(core.player);
-		mlx_pixel_put(core.mlx, core.win, core.player.line_points.x,
-			core.player.line_points.y, core.mapconf.f_color);
-		printf("color: %i\nline: (%i, %i)\n", core.mapconf.f_color,
-			core.player.line_points.x,
-			core.player.line_points.y);
+		//printf("color: %i\n", core.mapconf.c_color);
+		//print_wall(core, i);
+		//mlx_put_image_to_window(core.mlx, core.win, core.player.img, DWIN_X, DWIN_Y);
 	}
 	return (core);
 }

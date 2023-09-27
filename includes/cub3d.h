@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/26 13:02:08 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/27 12:31:11 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,10 @@
 # include <math.h>
 
 # define DWIN_X 640
-# define DWIN_Y 480
+# define DWIN_Y 680
 
 # define IMGS_X 64
 # define IMGS_Y	64
-
 
 //Size map struct for verification
 typedef struct s_point
@@ -92,6 +91,7 @@ typedef struct s_player
 	int				orientation_degree;
 	int				vision_degree;
 	int				height;
+	void			*img;
 }	t_player;
 
 //Main struct
@@ -159,6 +159,7 @@ t_vector	sub_vectors(t_vector a, t_vector b);
 t_core		get_cam(t_core core);
 t_player	calculate_wall_dist(t_player player);
 t_player	calculate_height_line(t_player player);
-void		print_player_stuff(t_core core);
+void		print_player_stuff(t_player player);
+void		print_wall(t_core core, int i);
 
 #endif
