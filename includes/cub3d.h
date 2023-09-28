@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/27 12:31:11 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/28 12:34:40 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,26 @@
 # define DWIN_X 640
 # define DWIN_Y 680
 
+# define WIDTH 640
+# define HEIGHT 680
+
 # define IMGS_X 64
 # define IMGS_Y	64
+
+# define R	"\x1B[31m"	// RED
+# define G	"\x1B[32m"	// GREEN
+# define B	"\x1B[34m"	// BLUE
+# define Y	"\x1B[33m"	// YELLOW
+# define M	"\x1B[35m"	// MAGENTA
+# define C	"\x1B[36m"	// CYAN
+# define W	"\x1B[0m"	// WHITE
+# define BR	"\x1B[91m"	// BRIGHT RED
+# define BG	"\x1B[92m"	// BRIGHT GREEN
+# define BB	"\x1B[94m"	// BRIGT BLUE
+# define BY	"\x1B[93m"	// BRIGHT YELLOW
+# define BM	"\x1B[95m"	// BRIGHT MAGENTA
+# define BC	"\x1B[96m"	// BRIGHT CYAN
+# define GR	"\x1B[90m" 	// GRAY
 
 //Size map struct for verification
 typedef struct s_point
@@ -71,17 +89,17 @@ typedef struct s_img
 typedef struct s_player
 {
 	char			player;
-	t_vector		position;
+	t_vector		pos;
 	t_vector		grid_coord;
 	t_vector		direction;
 	t_vector		plane;
 	t_vector		cam_start;
 	t_vector		cam_end;
 	t_vector		cam_center;
-	t_point			map_pos;
+	t_point			map;
 	t_vector		ray_dir;
-	t_vector		side_dist;
-	t_vector		delta_dist;
+	t_vector		side_di;
+	t_vector		delta;
 	t_point			step;
 	double			wall_dist;
 	int				line_height;
@@ -108,9 +126,6 @@ typedef struct s_core
 	char		**map;
 	t_player	player;
 }	t_core;
-
-# define G	"\x1B[32m"	// GREEN
-# define W	"\x1B[0m"	// WHITE
 
 //Init fuctions
 t_core		cb_init(char **argv);
@@ -160,6 +175,6 @@ t_core		get_cam(t_core core);
 t_player	calculate_wall_dist(t_player player);
 t_player	calculate_height_line(t_player player);
 void		print_player_stuff(t_player player);
-void		print_wall(t_core core, int i);
+t_core		print_wall(t_core core, int i);
 
 #endif

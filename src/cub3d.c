@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:03:35 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/27 12:34:46 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/28 13:12:55 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	cb_input(int key, t_core *core)
 int	main(int argc, char **argv)
 {
 	t_core	core;
+
 	if (argc != 2 || (argc == 2 && !argv[1]))
 	{
 		printf("Error\nNeeded .cub map\n");
@@ -56,8 +57,8 @@ int	main(int argc, char **argv)
 	mlx_hook(core.win, 17, 0, cb_exit, &core);
 	mlx_hook(core.win, 2, 0, cb_input, &core);
 	core = rc_start(core);
-	print_player_stuff(core.player);
-	cb_exit(&core);
+	//print_player_stuff(core.player);
+	//cb_exit(&core);
 	mlx_loop(core.mlx);
 	//cb_freecore(&core);
 	return (0);

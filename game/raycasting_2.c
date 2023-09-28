@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 12:25:59 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/27 12:19:59 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/28 13:13:46 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,40 +15,42 @@
 t_player	calculate_wall_dist(t_player player)
 {
 	if (player.side == 0)
-		player.wall_dist = player.side_dist.x - player.delta_dist.x;
+	{
+		player.wall_dist = (player.side_di.x - player.delta.x);
+	}
 	else
-		player.wall_dist = player.side_dist.y - player.delta_dist.y;
+	{
+		player.wall_dist = (player.side_di.y - player.delta.y);
+	}
 	return (player);
 }
 
 t_player	calculate_height_line(t_player player)
 {
-	int	line_start;
-	int	line_end;
-
-	player.line_height = (int)(DWIN_Y / player.wall_dist);
-	line_start = -player.line_height / 2 + DWIN_Y / 2;
-	if (line_start < 0)
+	player.line_height = (int)(HEIGHT / player.wall_dist);
+	player.line_points.x = (player.line_height * -1) / 2 + HEIGHT / 2;
+	if (player.line_points.x < 0)
 		player.line_points.x = 0;
-	line_end = player.line_height / 2 + DWIN_Y / 2;
-	if (line_start >= DWIN_Y)
-		player.line_points.y = DWIN_Y - 1;
+	player.line_points.y = player.line_height / 2 + HEIGHT / 2;
+	if (player.line_points.y >= HEIGHT)
+		player.line_points.y = HEIGHT - 1;
 	return (player);
 }
 
-void	print_wall(t_core core, int i)
+t_core	print_wall(t_core core, int i)
 {
-	int	st;
-	int	en;
+	int	y;
+	int	end;
 
-	(void)i;
-	st = core.player.line_points.x;
-	en = core.player.line_points.y;
-	printf("end: %i\n", en);
-	while (st < en)
+	y = 0;
+	y = core.player.line_points.x;
+	end = core.player.line_points.y;
+	printf("line %i/%d\n", y, end);
+	while (y < end)
 	{
-		mlx_pixel_put(core.mlx, core.player.img, i, en, 10079487);
-		printf("start: %i/%i\n", st, en);
-		st++;
+		printf("pixel (%i, %i)\n", i, y);
+		mlx_pixel_put(core.mlx, core.win, i, y, 10079487);
+		y++;
 	}
+	return (core);
 }

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:09:29 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/27 12:35:29 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/28 11:00:36 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static int	get_pos(t_mapconf mapconf, char **map, char pos)
 	return (y);
 }
 
-t_core	get_degree(t_core core, int x, int y)
+static t_core	get_plane(t_core core, int x, int y)
 {
 	if (core.map[y][x] == 'E')
 	{
@@ -82,7 +82,7 @@ void	print_player_stuff(t_player player)
 	printf(" player grid pos  (%.2f, %.2f)\n",
 		player.grid_coord.x, player.grid_coord.y);
 	printf(" player real pos (%.2f, %.2f)\n",
-		player.position.x, player.position.y);
+		player.pos.x, player.pos.y);
 	printf(" player direction (%.2f, %.2f)\n",
 		player.direction.x, player.direction.y);
 	printf(" player plane (%.2f, %.2f)%s\n",
@@ -92,13 +92,13 @@ void	print_player_stuff(t_player player)
 	printf(" player cam_end(%.2f, %.2f)%s\n",
 		player.cam_end.x, player.cam_end.y, G);
 	printf(" player map pos(%i, %i)%s\n",
-		player.map_pos.x, player.map_pos.y, G);
+		player.map.x, player.map.y, G);
 	printf(" player ray dir(%.2f, %.2f)%s\n",
 		player.ray_dir.x, player.ray_dir.y, G);
 	printf(" player side dist(%.2f, %.2f)%s\n",
-		player.side_dist.x, player.side_dist.y, G);
+		player.side_di.x, player.side_di.y, G);
 	printf(" player delta dist(%.2f, %.2f)%s\n",
-		player.delta_dist.x, player.delta_dist.y, G);
+		player.delta.x, player.delta.y, G);
 	printf(" player step(%i, %i)%s\n",
 		player.step.x, player.step.y, G);	
 	printf(" player wall dist (%.2f)%s\n",
@@ -125,9 +125,9 @@ t_core	init_player_datas(t_core core)
 	x = core.player.grid_coord.x;
 	y = core.player.grid_coord.y;
 	core.player.player = core.map[y][x];
-	core.player.position.x = (IMGS_X * core.player.grid_coord.x) + IMGS_X / 2;
-	core.player.position.y = (IMGS_Y * core.player.grid_coord.y) + IMGS_Y / 2;
-	core = get_degree(core, x, y);
+	core.player.pos.x = (IMGS_X * core.player.grid_coord.x) + IMGS_X / 2;
+	core.player.pos.y = (IMGS_Y * core.player.grid_coord.y) + IMGS_Y / 2;
+	core = get_plane(core, x, y);
 	core = get_cam(core);
 	return (core);
 }
