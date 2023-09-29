@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:23:39 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/29 11:24:39 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/29 11:44:22 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static t_player	calculate_side_dist(t_player player)
 {
 	if (player.ray_dir.x < 0)
 	{
-		//printf("%s NO %s\n", C, W);
 		player.step.x = -1;
 		player.side_di.x = (player.pos.x + player.map.x) * player.delta.x;
 	}
@@ -37,9 +36,6 @@ static t_player	calculate_side_dist(t_player player)
 	{
 		player.step.x = 1;
 		player.side_di.x = (player.map.x + 1.0 - player.pos.x) * player.delta.x;
-/* 		printf("%s MAP X: %i %s\n", C, player.map.x, W);
-		printf("%s SIDE POS X: %.2f %s\n", C, player.pos.x, W);
-		printf("%s SIDE DIST X: %.2f %s\n", C, player.side_di.x, W); */
 	}
 	if (player.ray_dir.y < 0)
 	{
