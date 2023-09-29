@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:23:39 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/29 10:59:02 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/29 11:24:39 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ t_core	rc_start(t_core core)
 	int			x;
 
 	x = 0;
-	//core.player.img = mlx_new_image(core.mlx, DWIN_X, DWIN_Y);
+	//core.player.img = mlx_new_image(core.mlx, WIDTH, HEIGHT);
 	while (x < WIDTH)
 	{
 		core.player = calculate_position(core.player, x);

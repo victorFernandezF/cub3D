@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 12:25:59 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/29 10:59:16 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/29 11:33:59 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,9 @@ t_player	calculate_position(t_player player, int x)
 t_player	calculate_wall_dist(t_player player)
 {
 	if (player.side == 0)
-	{
 		player.wall_dist = (player.side_di.x - player.delta.x);
-	}
 	else
-	{
 		player.wall_dist = (player.side_di.y - player.delta.y);
-	}
 	return (player);
 }
 
@@ -42,7 +38,6 @@ t_player	calculate_height_line(t_player player)
 	player.line_points.x = -player.line_height / 2 + HEIGHT / 2;
 	if (player.line_points.x < 0)
 		player.line_points.x = 0;
-	printf("%sTESTING: %i %s\n\n", C, player.line_height, W);
 	player.line_points.y = player.line_height / 2 + HEIGHT / 2;
 	if (player.line_points.y > HEIGHT)
 		player.line_points.y = HEIGHT - 1;
@@ -53,15 +48,17 @@ t_core	print_wall(t_core core, int x)
 {
 	int	y;
 	int	end;
+	int	color;
 
 	y = 0;
 	y = core.player.line_points.x;
 	end = core.player.line_points.y;
-	//printf("line %i/%d\n", y, end);
 	while (y < end)
 	{
-		printf("pixel (%i, %i)\n", x, y);
-		mlx_pixel_put(core.mlx, core.win, x, y, 10079487);
+		color = core.mapconf.c_color;
+		if (core.player.side == 1)
+			color = core.mapconf.f_color;
+		mlx_pixel_put(core.mlx, core.win, x, y, color);
 		y++;
 	}
 	return (core);
