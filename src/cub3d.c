@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:03:35 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/28 13:12:55 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/29 10:58:50 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ int	main(int argc, char **argv)
 	core = cb_init(argv);
 	core = init_player_datas(core);
 	//printcore(core);
-	mlx_put_image_to_window(core.mlx, core.win, core.imgs.n, IMGS_X, IMGS_Y);
+	//mlx_put_image_to_window(core.mlx, core.win, core.imgs.n, IMGS_X, IMGS_Y);
 	mlx_hook(core.win, 17, 0, cb_exit, &core);
 	mlx_hook(core.win, 2, 0, cb_input, &core);
 	core = rc_start(core);
 	//print_player_stuff(core.player);
 	//cb_exit(&core);
 	mlx_loop(core.mlx);
-	//cb_freecore(&core);
+	cb_freecore(&core);
 	return (0);
 }

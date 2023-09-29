@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:09:29 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/28 11:00:36 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/29 11:05:04 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,9 @@ t_core	init_player_datas(t_core core)
 	int	x;
 	int	y;
 
+	core.player.line_height = 0;
+	core.player.line_points.x = 0;
+	core.player.line_points.y = 0;
 	core.player.plane.x = 0;
 	core.player.plane.y = 0;
 	core.player.direction.x = 0;
@@ -125,8 +128,8 @@ t_core	init_player_datas(t_core core)
 	x = core.player.grid_coord.x;
 	y = core.player.grid_coord.y;
 	core.player.player = core.map[y][x];
-	core.player.pos.x = (IMGS_X * core.player.grid_coord.x) + IMGS_X / 2;
-	core.player.pos.y = (IMGS_Y * core.player.grid_coord.y) + IMGS_Y / 2;
+	core.player.pos.x = core.player.grid_coord.x + 0.1;
+	core.player.pos.y = core.player.grid_coord.y + 0.1;
 	core = get_plane(core, x, y);
 	core = get_cam(core);
 	return (core);

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/28 12:34:40 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/29 10:59:51 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@
 # include <stdbool.h>
 # include <math.h>
 
-# define DWIN_X 640
-# define DWIN_Y 680
+# define DWIN_X 900
+# define DWIN_Y 600
 
-# define WIDTH 640
-# define HEIGHT 680
+# define WIDTH 900
+# define HEIGHT 600
 
 # define IMGS_X 64
 # define IMGS_Y	64
@@ -101,6 +101,7 @@ typedef struct s_player
 	t_vector		side_di;
 	t_vector		delta;
 	t_point			step;
+	double			cam_x;
 	double			wall_dist;
 	int				line_height;
 	t_point			line_points;
@@ -174,6 +175,7 @@ t_vector	sub_vectors(t_vector a, t_vector b);
 t_core		get_cam(t_core core);
 t_player	calculate_wall_dist(t_player player);
 t_player	calculate_height_line(t_player player);
+t_player	calculate_position(t_player player, int x);
 void		print_player_stuff(t_player player);
 t_core		print_wall(t_core core, int i);
 
