@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/02 12:41:49 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/02 12:58:28 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,6 +166,8 @@ void		cb_failrows(char **map, int i, int fd);
 //utils extra
 void		printmat(char **mat);
 void		cb_printmc(t_mapconf *mapconf);
+
+int	cb_makecolor(char *str);
 
 //player datas
 t_player	init_player_datas(t_core core);
