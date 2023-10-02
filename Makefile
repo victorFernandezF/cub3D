@@ -17,6 +17,7 @@ SRC = 		src/cub3d.c \
 			game/raycasting.c\
 			game/raycasting_2.c\
 			game/player_utils.c \
+			game/print.c \
 			game/print_test.c
 
 

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 11:29:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/02 11:29:46 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/02 13:07:56 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ void	print_player_stuff(t_player player)
 	printf(" player line height(%i,%i)%s\n",
 		player.line_points.x, player.line_points.y, G);
 	printf(" player line points (%i, %i)%s\n\n",
-		player.line_points.x, player.line_points.y, W);
+		player.line_points.x, player.line_points.y, G);
+	printf("test color (%i)%s\n\n", cb_makecolor("130,26,0"), W);
 }

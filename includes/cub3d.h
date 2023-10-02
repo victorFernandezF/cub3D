@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/02 12:58:28 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/02 13:46:11 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,15 @@ typedef struct s_img
 	void	*e;
 }	t_img;
 
+typedef struct s_print
+{
+	void	*pixel_img;
+	int		*data;
+	int		size_l;
+	int		bpp;
+	int		endian;
+}	t_print;
+
 //Player struct
 typedef struct s_player
 {
@@ -111,6 +120,7 @@ typedef struct s_player
 	int				vision_degree;
 	int				height;
 	void			*img;
+	t_print			print;
 }	t_player;
 
 //Main struct
