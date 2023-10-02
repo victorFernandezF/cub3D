@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:23:39 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/02 13:57:27 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/02 18:14:09 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,9 @@ t_player	rc_start(t_core core)
 
 	x = 0;
 	player = init_player_datas(core);
-
+	player.p_img.img_ptr = mlx_new_image(core.mlx, WIDTH, HEIGHT);
+	player.p_img.data = (int *)mlx_get_data_addr(player.p_img.img_ptr,
+			&player.p_img.bpp, &player.p_img.size_l, &player.p_img.endian);
 	while (x < WIDTH)
 	{
 		player = calculate_position(player, x);
@@ -93,5 +95,6 @@ t_player	rc_start(t_core core)
 		print_wall(core, player, x);
 		x++;
 	}
+	mlx_put_image_to_window(core.mlx, core.win, player.p_img.img_ptr, 0, 0);
 	return (player);
 }
