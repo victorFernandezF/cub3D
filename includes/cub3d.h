@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/29 10:59:51 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/02 12:41:49 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,15 +168,15 @@ void		printmat(char **mat);
 void		cb_printmc(t_mapconf *mapconf);
 
 //player datas
-t_core		init_player_datas(t_core core);
-t_core		rc_start(t_core core);
+t_player	init_player_datas(t_core core);
+t_player	rc_start(t_core core);
 t_vector	sum_vectors(t_vector a, t_vector b);
 t_vector	sub_vectors(t_vector a, t_vector b);
-t_core		get_cam(t_core core);
+t_player	get_cam(t_core core, t_player pl);
 t_player	calculate_wall_dist(t_player player);
 t_player	calculate_height_line(t_player player);
 t_player	calculate_position(t_player player, int x);
 void		print_player_stuff(t_player player);
-t_core		print_wall(t_core core, int i);
+void		print_wall(t_core core, t_player pl, int x);
 
 #endif

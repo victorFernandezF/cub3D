@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 12:25:59 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/29 11:33:59 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/02 12:41:34 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,21 @@ t_player	calculate_height_line(t_player player)
 	return (player);
 }
 
-t_core	print_wall(t_core core, int x)
+void	print_wall(t_core core, t_player pl, int x)
 {
 	int	y;
 	int	end;
 	int	color;
 
 	y = 0;
-	y = core.player.line_points.x;
-	end = core.player.line_points.y;
+	y = pl.line_points.x;
+	end = pl.line_points.y;
 	while (y < end)
 	{
 		color = core.mapconf.c_color;
-		if (core.player.side == 1)
+		if (pl.side == 1)
 			color = core.mapconf.f_color;
 		mlx_pixel_put(core.mlx, core.win, x, y, color);
 		y++;
 	}
-	return (core);
 }

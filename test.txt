@@ -1,15 +1,18 @@
----- N ----
- (0, -1)
- (0.66, 0)
-
----- S ----
- (0, 1)
- (-0.66, 0)
-
----- E ----
- (1, 0)
- (0, 0.66)
-
----- W ----
- (-1, 0)
- (0, -0.66)
+player.line_height = 0;
+	player.line_points.x = 0;
+	player.line_points.y = 0;
+	player.plane.x = 0;
+	player.plane.y = 0;
+	player.direction.x = 0;
+	player.direction.y = 0;
+	player.height = IMGS_Y / 2;
+	player.vision_degree = 66;
+	player.grid_coord.x = get_pos(core.mapconf, core.map, 'x');
+	player.grid_coord.y = get_pos(core.mapconf, core.map, 'y');
+	x = player.grid_coord.x;
+	y = player.grid_coord.y;
+	player.player = core.map[y][x];
+	player.pos.x = player.grid_coord.x + 0.1;
+	player.pos.y = player.grid_coord.y + 0.1;
+	core = get_plane(core, x, y);
+	core = get_cam(core);

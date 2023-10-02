@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:23:39 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/29 11:44:22 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/02 12:42:03 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,23 +74,26 @@ static t_player	dda_algorithm(t_player player, char **map)
 	return (player);
 }
 
-t_core	rc_start(t_core core)
+t_player	rc_start(t_core core)
 {
+	t_player	player;
 	int			x;
 
 	x = 0;
+	player = init_player_datas(core);
+
 	//core.player.img = mlx_new_image(core.mlx, WIDTH, HEIGHT);
 	while (x < WIDTH)
 	{
-		core.player = calculate_position(core.player, x);
-		core.player = calculate_delta_stuff(core.player);
-		core.player = calculate_side_dist(core.player);
-		core.player = dda_algorithm(core.player, core.map);
-		core.player = calculate_wall_dist(core.player);
-		core.player = calculate_height_line(core.player);
-		core = print_wall(core, x);
+		player = calculate_position(player, x);
+		player = calculate_delta_stuff(player);
+		player = calculate_side_dist(player);
+		player = dda_algorithm(player, core.map);
+		player = calculate_wall_dist(player);
+		player = calculate_height_line(player);
+		print_wall(core, player, x);
 		x++;
 	}
 	//mlx_put_image_to_window(core.mlx, core.win, core.player.img, 0, 0);
-	return (core);
+	return (player);
 }

@@ -16,7 +16,8 @@ SRC = 		src/cub3d.c \
 			game/player_stuff.c \
 			game/raycasting.c\
 			game/raycasting_2.c\
-			game/player_utils.c
+			game/player_utils.c \
+			game/print_test.c
 
 
 OSRC = $(SRC:.c=.o)
