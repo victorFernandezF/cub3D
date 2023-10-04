@@ -6,17 +6,17 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 12:25:59 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/02 13:01:09 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/04 10:38:36 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-t_player	calculate_position(t_player player, int x)
+t_player	get_ray_and_positions(t_player player, int x)
 {
-	player.cam_x = 2 * x / (double) WIDTH -1;
-	player.ray_dir.x = player.direction.x + player.plane.x * player.cam_x;
-	player.ray_dir.y = player.direction.y + player.plane.y * player.cam_x;
+	player.cam.x = 2 * x / (double) WIDTH -1;
+	player.ray_dir.x = player.direction.x + player.plane.x * player.cam.x;
+	player.ray_dir.y = player.direction.y + player.plane.y * player.cam.x;
 	player.map.x = (int)player.pos.x;
 	player.map.y = (int)player.pos.y;
 	player.hit = 0;
@@ -25,22 +25,21 @@ t_player	calculate_position(t_player player, int x)
 
 t_player	calculate_wall_dist(t_player player)
 {
-	if (player.side == 0)
-		player.wall_dist = (player.side_di.x - player.delta.x);
+	if (player.is_side == 0)
+		player.line.wall_dist = (player.side_ds.x - player.delta.x);
 	else
-		player.wall_dist = (player.side_di.y - player.delta.y);
+		player.line.wall_dist = (player.side_ds.y - player.delta.y);
 	return (player);
 }
 
 t_player	calculate_height_line(t_player player)
 {
-	player.line_height = (int)(HEIGHT / player.wall_dist);
-	player.line_points.x = -player.line_height / 2 + HEIGHT / 2;
-	if (player.line_points.x < 0)
-		player.line_points.x = 0;
-	player.line_points.y = player.line_height / 2 + HEIGHT / 2;
-	if (player.line_points.y > HEIGHT)
-		player.line_points.y = HEIGHT - 1;
+	player.line.height = (int)(HEIGHT / player.line.wall_dist);
+	player.line.start = -player.line.height / 2 + HEIGHT / 2;
+	if (player.line.start < 0)
+		player.line.start = 0;
+	player.line.end = player.line.height / 2 + HEIGHT / 2;
+	if (player.line.end > HEIGHT)
+		player.line.end = HEIGHT - 1;
 	return (player);
 }
-

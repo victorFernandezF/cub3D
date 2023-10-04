@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/02 18:10:41 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/04 13:43:18 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 
 # define WIDTH 900
 # define HEIGHT 600
+# define MSPEED 0.1
 
 # define IMGS_X 64
 # define IMGS_Y	64
@@ -54,7 +55,7 @@ typedef struct s_point
 	int	y;
 }	t_point;
 
-// floats coords
+// vector of double (very useful)
 typedef struct s_vector
 {
 	double	x;
@@ -85,6 +86,7 @@ typedef struct s_img
 	void	*e;
 }	t_img;
 
+// Image datas to print pixels in it.
 typedef struct s_pimg
 {
 	void	*img_ptr;
@@ -94,6 +96,35 @@ typedef struct s_pimg
 	int		endian;
 }	t_pimg;
 
+// Camera datas.
+typedef struct s_cam
+{
+	t_vector	start;
+	t_vector	end;
+	double		x;
+}	t_cam;
+
+// Line to print datas.
+typedef struct s_line
+{
+	int		start;
+	int		end;
+	int		height;
+	double	wall_dist;
+}	t_line;
+
+typedef struct s_texture
+{
+	int		num;
+	int		with;
+	int		height;
+	double	wall;
+	double	pos;
+	int		x;
+	void	*ptr;
+	t_pimg	datas;
+}	t_texture;
+
 //Player struct
 typedef struct s_player
 {
@@ -102,25 +133,18 @@ typedef struct s_player
 	t_vector		grid_coord;
 	t_vector		direction;
 	t_vector		plane;
-	t_vector		cam_start;
-	t_vector		cam_end;
-	t_vector		cam_center;
 	t_point			map;
 	t_vector		ray_dir;
-	t_vector		side_di;
+	t_vector		side_ds;
 	t_vector		delta;
+	t_cam			cam;
 	t_point			step;
-	double			cam_x;
-	double			wall_dist;
-	int				line_height;
-	t_point			line_points;
+	t_line			line;
 	int				hit;
-	int				side;
-	int				orientation_degree;
-	int				vision_degree;
-	int				height;
+	int				is_side;
 	void			*img;
 	t_pimg			p_img;
+	t_texture		tex;
 }	t_player;
 
 //Main struct
@@ -177,18 +201,27 @@ void		cb_failrows(char **map, int i, int fd);
 void		printmat(char **mat);
 void		cb_printmc(t_mapconf *mapconf);
 
-int	cb_makecolor(char *str);
+int			cb_makecolor(char *str);
+int			cb_exit(t_core *core);
 
-//player datas
+// Raycasting and printing
 t_player	init_player_datas(t_core core);
-t_player	rc_start(t_core core);
+t_player	get_cam(t_core core, t_player pl);
+
 t_vector	sum_vectors(t_vector a, t_vector b);
 t_vector	sub_vectors(t_vector a, t_vector b);
-t_player	get_cam(t_core core, t_player pl);
+t_player	rc_start(t_core core);
+t_player	get_ray_and_positions(t_player player, int x);
+t_player	get_delta_dist(t_player player);
+t_player	raycasting(t_player player, char **map);
 t_player	calculate_wall_dist(t_player player);
 t_player	calculate_height_line(t_player player);
-t_player	calculate_position(t_player player, int x);
+void		print_ceiling(t_core core, t_player pl, int x);
+void		print_floor(t_core core, t_player pl, int x);
+void		print_3d_map(t_core core, t_player pl, int x);
 void		print_player_stuff(t_player player);
-void		print_wall(t_core core, t_player pl, int x);
+void		read_keys(t_core core);
+int			input(int key, t_core *core);
+
 
 #endif

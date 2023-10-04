@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:09:29 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/02 12:36:50 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/04 10:27:18 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,25 +49,21 @@ static t_player	get_plane(t_core core, t_player pl, int x, int y)
 {
 	if (core.map[y][x] == 'E')
 	{
-		pl.orientation_degree = 0;
 		pl.direction.x = 1;
 		pl.plane.y = 0.66;
 	}
 	if (core.map[y][x] == 'N')
 	{
-		pl.orientation_degree = 90;
 		pl.direction.y = -1;
 		pl.plane.x = 0.66;
 	}
 	if (core.map[y][x] == 'W')
 	{
-		pl.orientation_degree = 180;
 		pl.direction.x = -1;
 		pl.plane.y = -0.66;
 	}
 	if (core.map[y][x] == 'S')
 	{
-		pl.orientation_degree = 270;
 		pl.direction.y = 1;
 		pl.plane.x = -0.66;
 	}
@@ -80,15 +76,13 @@ t_player	init_player_datas(t_core core)
 	int			x;
 	int			y;
 
-	player.line_height = 0;
-	player.line_points.x = 0;
-	player.line_points.y = 0;
+	player.line.height = 0;
+	player.line.start = 0;
+	player.line.end = 0;
 	player.plane.x = 0;
 	player.plane.y = 0;
 	player.direction.x = 0;
 	player.direction.y = 0;
-	player.height = IMGS_Y / 2;
-	player.vision_degree = 66;
 	player.grid_coord.x = get_pos(core.mapconf, core.map, 'x');
 	player.grid_coord.y = get_pos(core.mapconf, core.map, 'y');
 	x = player.grid_coord.x;
