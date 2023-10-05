@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_stuff.c                                     :+:      :+:    :+:   */
+/*   player_datas.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:09:29 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/04 10:27:18 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/05 18:08:30 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ t_player	init_player_datas(t_core core)
 	x = player.grid_coord.x;
 	y = player.grid_coord.y;
 	player.player = core.map[y][x];
-	player.pos.x = player.grid_coord.x + 0.1;
-	player.pos.y = player.grid_coord.y + 0.1;
+	player.pos.x = player.grid_coord.x + 0.5;
+	player.pos.y = player.grid_coord.y + 0.5;
 	player = get_plane(core, player, x, y);
 	player = get_cam(core, player);
 	return (player);

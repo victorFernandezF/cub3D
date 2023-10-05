@@ -6,11 +6,27 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/04 13:54:56 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/05 19:19:39 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+t_core	*move_character(t_core *core, double old_x, double old_y)
+{
+	double	x;
+	double	y;
+
+	x = core->player.pos.x + old_x * MSPEED;
+	y = core->player.pos.y + old_y * MSPEED;
+	if (core->map[(int)core->player.pos.y]
+		[(int)(x + core->player.direction.x / 1e5)] != '1')
+			core->player.pos.x = x;
+	if (core->map[(int)(y + core->player.direction.y / 1e5)]
+		[(int)core->player.pos.x] != '1')
+			core->player.pos.y = y;
+	return (core);
+}
 
 int	input(int key, t_core *core)
 {
@@ -21,21 +37,16 @@ int	input(int key, t_core *core)
 		cb_exit(core);
 	if (key == 13)
 	{
-		
-		if (core->map[(int)pl->pos.x][(int)pl->pos.y + 1] != '1')
-			pl->pos.y += 1;
-		printf("(%i, %i)\n", (int)pl->pos.x, (int)pl->pos.y);
-		printf("%c\n", core->map[(int)pl->pos.x + 1][(int)pl->pos.y]);
-		printf("%c\n", core->map[(int)pl->pos.x + 1][(int)pl->pos.y]);
- 		/*printf("%c\n", core->map[(int)(pl->pos.x + pl->direction.y * MSPEED)][(int)pl->pos.y]);
-		if (core->map[(int)(pl->pos.x + pl->direction.x * MSPEED)]
-			[(int)pl->pos.y] != '1')
-			pl->pos.x += pl->direction.x * 1;
-		if (core->map[(int)pl->pos.x]
-			[(int)(pl->pos.y + pl->direction.y * MSPEED)] != '1')
-			pl->pos.y += pl->direction.y * MSPEED; */
+		if (core->map[(int)pl->pos.y][(int)pl->pos.x] == '1')
+			return (0);
+		core = move_character(core, pl->direction.x, pl->direction.y);
 	}
-	core->player = *pl;
-	rc_start(*core);
+	if (key == 1)
+	{
+		if (core->map[(int)pl->pos.y][(int)pl->pos.x] == '1')
+			return (0);
+		core = move_character(core, pl->direction.x, -pl->direction.y);
+	}
+	core->player = rc_start(*core);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/04 13:43:18 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/05 18:27:36 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 
 # define WIDTH 900
 # define HEIGHT 600
-# define MSPEED 0.1
+# define MSPEED 0.2
 
 # define IMGS_X 64
 # define IMGS_Y	64
@@ -222,6 +222,7 @@ void		print_3d_map(t_core core, t_player pl, int x);
 void		print_player_stuff(t_player player);
 void		read_keys(t_core core);
 int			input(int key, t_core *core);
+
 
 
 #endif
