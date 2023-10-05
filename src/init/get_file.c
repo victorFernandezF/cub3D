@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:52:03 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/18 15:46:53 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/05 09:09:16 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,11 @@ int	cb_mrows(char *argv)
 	s = get_next_linem(fd);
 	while (s)
 	{
-		if (!cb_emptyln(s))
+		if (!cb_emptyln(s) || rows >= 6)
 			rows++;
 		free(s);
 		s = get_next_linem(fd);
 	}
-	/*if (rows < 3)
-		cb_fail("Error\nIncorrect map, min 3 pos Y axis\n");*/
 	close(fd);
 	return (rows);
 }
@@ -80,7 +78,7 @@ char	**cb_getfile(char *argv)
 	while (i < cb_mrows(argv))
 	{
 		s = get_next_linem(fd);
-		if (!cb_emptyln(s))
+		if (!cb_emptyln(s) || i >= 6)
 		{
 			file[i] = cb_fillrows(s);
 			if (!file[i])
