@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/05 19:19:39 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/05 19:26:49 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,18 @@ int	input(int key, t_core *core)
 		if (core->map[(int)pl->pos.y][(int)pl->pos.x] == '1')
 			return (0);
 		core = move_character(core, pl->direction.x, -pl->direction.y);
+	}
+	if (key == 0)
+	{
+		if (core->map[(int)pl->pos.y][(int)pl->pos.x] == '1')
+			return (0);
+		core = move_character(core, -pl->direction.y, pl->direction.x);
+	}
+	if (key == 2)
+	{
+		if (core->map[(int)pl->pos.y][(int)pl->pos.x] == '1')
+			return (0);
+		core = move_character(core, -pl->direction.y, pl->direction.x);
 	}
 	core->player = rc_start(*core);
 	return (0);
