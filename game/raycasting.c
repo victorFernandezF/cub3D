@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:23:39 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/06 10:58:39 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/06 12:42:18 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static t_player	calculate_side_dsst(t_player player)
 	if (player.ray_dir.x < 0)
 	{
 		player.step.x = -1;
-		player.side_ds.x = (player.pos.x + player.map.x) * player.delta.x;
+		player.side_ds.x = (player.pos.x - player.map.x) * player.delta.x;
 	}
 	else
 	{
@@ -40,7 +40,7 @@ static t_player	calculate_side_dsst(t_player player)
 	if (player.ray_dir.y < 0)
 	{
 		player.step.y = -1;
-		player.side_ds.y = (player.pos.y + player.map.y) * player.delta.y;
+		player.side_ds.y = (player.pos.y - player.map.y) * player.delta.y;
 	}
 	else
 	{
@@ -65,11 +65,7 @@ t_player	raycasting(t_player player, char **map)
 			player.side_ds.y += player.delta.y;
 			player.map.y += player.step.y;
 			player.is_side = 1;
-		}
-		printf("(%i, %i) : %c\n",
-			 player.map.y, player.map.x,
-			map[player.map.y][player.map.x]);
-			
+		}		
 		if (map[player.map.y][player.map.x])
 			if (map[player.map.y][player.map.x] == '1'
 				|| map[player.map.y][player.map.x] == '*')
