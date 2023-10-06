@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/05 18:27:36 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/06 10:49:46 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@
 
 # define IMGS_X 64
 # define IMGS_Y	64
+
+# define K_ESC 53
+# define K_W 13
+# define K_S 1
+# define K_A 0
+# define K_D 2
 
 # define R	"\x1B[31m"	// RED
 # define G	"\x1B[32m"	// GREEN
@@ -131,7 +137,7 @@ typedef struct s_player
 	char			player;
 	t_vector		pos;
 	t_vector		grid_coord;
-	t_vector		direction;
+	t_vector		dir;
 	t_vector		plane;
 	t_point			map;
 	t_vector		ray_dir;
@@ -211,7 +217,7 @@ t_player	get_cam(t_core core, t_player pl);
 t_vector	sum_vectors(t_vector a, t_vector b);
 t_vector	sub_vectors(t_vector a, t_vector b);
 t_player	rc_start(t_core core);
-t_player	get_ray_and_positions(t_player player, int x);
+t_player	get_ray_and_positions(t_core core, t_player player, int x);
 t_player	get_delta_dist(t_player player);
 t_player	raycasting(t_player player, char **map);
 t_player	calculate_wall_dist(t_player player);
@@ -222,7 +228,7 @@ void		print_3d_map(t_core core, t_player pl, int x);
 void		print_player_stuff(t_player player);
 void		read_keys(t_core core);
 int			input(int key, t_core *core);
-
+int			get_pos(t_mapconf mapconf, char **map, char pos);
 
 
 #endif

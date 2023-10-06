@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 11:29:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/04 10:36:44 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/06 10:09:40 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	print_player_stuff(t_player player)
 	printf(" player real pos (%.2f, %.2f)\n",
 		player.pos.x, player.pos.y);
 	printf(" player direction (%.2f, %.2f)\n",
-		player.direction.x, player.direction.y);
+		player.dir.x, player.dir.y);
 	printf(" player plane (%.2f, %.2f)%s\n",
 		player.plane.x, player.plane.y, G);
 	printf(" player cam_start(%.2f, %.2f)%s\n",

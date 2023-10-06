@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:09:29 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/05 18:08:30 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/06 10:38:12 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	is_player(char c)
 	return (c == 'N' || c == 'W' || c == 'S' || c == 'E');
 }
 
-static int	get_pos(t_mapconf mapconf, char **map, char pos)
+int	get_pos(t_mapconf mapconf, char **map, char pos)
 {
 	int	i;
 	int	j;
@@ -49,22 +49,22 @@ static t_player	get_plane(t_core core, t_player pl, int x, int y)
 {
 	if (core.map[y][x] == 'E')
 	{
-		pl.direction.x = 1;
+		pl.dir.x = 1;
 		pl.plane.y = 0.66;
 	}
 	if (core.map[y][x] == 'N')
 	{
-		pl.direction.y = -1;
+		pl.dir.y = -1;
 		pl.plane.x = 0.66;
 	}
 	if (core.map[y][x] == 'W')
 	{
-		pl.direction.x = -1;
+		pl.dir.x = -1;
 		pl.plane.y = -0.66;
 	}
 	if (core.map[y][x] == 'S')
 	{
-		pl.direction.y = 1;
+		pl.dir.y = 1;
 		pl.plane.x = -0.66;
 	}
 	return (pl);
@@ -81,8 +81,8 @@ t_player	init_player_datas(t_core core)
 	player.line.end = 0;
 	player.plane.x = 0;
 	player.plane.y = 0;
-	player.direction.x = 0;
-	player.direction.y = 0;
+	player.dir.x = 0;
+	player.dir.y = 0;
 	player.grid_coord.x = get_pos(core.mapconf, core.map, 'x');
 	player.grid_coord.y = get_pos(core.mapconf, core.map, 'y');
 	x = player.grid_coord.x;

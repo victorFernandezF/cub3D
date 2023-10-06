@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:23:39 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/05 18:57:02 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/06 10:58:39 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,14 @@ t_player	raycasting(t_player player, char **map)
 			player.map.y += player.step.y;
 			player.is_side = 1;
 		}
-		if (map[player.map.y][player.map.x] == '1'
-			|| map[player.map.y][player.map.x] == '*')
-			player.hit = 1;
+		printf("(%i, %i) : %c\n",
+			 player.map.y, player.map.x,
+			map[player.map.y][player.map.x]);
+			
+		if (map[player.map.y][player.map.x])
+			if (map[player.map.y][player.map.x] == '1'
+				|| map[player.map.y][player.map.x] == '*')
+				player.hit = 1;
 	}
 	return (player);
 }
@@ -82,7 +87,7 @@ t_player	rc_start(t_core core)
 	x = 0;
 	while (x < WIDTH)
 	{
-		player = get_ray_and_positions(player, x);
+		player = get_ray_and_positions(core, player, x);
 		player = get_delta_dist(player);
 		player = calculate_side_dsst(player);
 		player = raycasting(player, core.map);
