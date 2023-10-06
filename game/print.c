@@ -6,13 +6,12 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 13:56:38 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/04 12:10:25 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/06 13:49:29 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 #include <stdint.h>
-
 
 void	print_ceiling(t_core core, t_player pl, int x)
 {

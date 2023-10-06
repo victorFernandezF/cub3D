@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/06 13:36:46 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/06 13:49:17 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ t_core	*move_back(t_core *core)
 	core->player = rc_start(*core);
 	return (core);
 }
+
 t_core	*move_left(t_core *core)
 {
 	if ((int)core->player.pos.x == 0)
@@ -76,7 +77,6 @@ t_core	*move_right(t_core *core)
 	return (core);
 }
 
-
 int	input(int key, t_core *core)
 {
 	t_player	*pl;
@@ -92,9 +92,6 @@ int	input(int key, t_core *core)
 		core = move_left(core);
 	if (key == K_D)
 		core = move_right(core);
-	//printmat(core->map);
-	//printf("\n");
 	print_player_stuff(core->player);
-	//printf("\n");
 	return (0);
 }

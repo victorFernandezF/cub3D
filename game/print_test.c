@@ -6,11 +6,30 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 11:29:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/06 10:09:40 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/06 13:50:57 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+static void	print_test2(t_player player)
+{
+	printf(" player ray dir(%.2f, %.2f)%s\n",
+		player.ray_dir.x, player.ray_dir.y, G);
+	printf(" player side dist(%.2f, %.2f)%s\n",
+		player.side_ds.x, player.side_ds.y, G);
+	printf(" player delta dist(%.2f, %.2f)%s\n",
+		player.delta.x, player.delta.y, G);
+	printf(" player step(%i, %i)%s\n",
+		player.step.x, player.step.y, G);
+	printf(" player wall dist (%.2f)%s\n",
+		player.line.wall_dist, G);
+	printf(" player line height(%i,%i)%s\n",
+		player.line.start, player.line.end, G);
+	printf(" player line points (%i, %i)%s\n\n",
+		player.line.start, player.line.end, G);
+	printf("test color (%i)%s\n\n", cb_makecolor("130,26,0"), W);
+}
 
 void	print_player_stuff(t_player player)
 {
@@ -30,19 +49,5 @@ void	print_player_stuff(t_player player)
 		player.cam.end.x, player.cam.end.y, G);
 	printf(" player map pos(%i, %i)%s\n",
 		player.map.x, player.map.y, G);
-	printf(" player ray dir(%.2f, %.2f)%s\n",
-		player.ray_dir.x, player.ray_dir.y, G);
-	printf(" player side dist(%.2f, %.2f)%s\n",
-		player.side_ds.x, player.side_ds.y, G);
-	printf(" player delta dist(%.2f, %.2f)%s\n",
-		player.delta.x, player.delta.y, G);
-	printf(" player step(%i, %i)%s\n",
-		player.step.x, player.step.y, G);
-	printf(" player wall dist (%.2f)%s\n",
-		player.line.wall_dist, G);
-	printf(" player line height(%i,%i)%s\n",
-		player.line.start, player.line.end, G);
-	printf(" player line points (%i, %i)%s\n\n",
-		player.line.start, player.line.end, G);
-	printf("test color (%i)%s\n\n", cb_makecolor("130,26,0"), W);
+	print_test2(player);
 }
