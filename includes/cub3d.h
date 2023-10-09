@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/09 10:59:43 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/09 18:43:32 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define WIDTH 900
 # define HEIGHT 600
 # define MSPEED 0.2
+# define RSPEED 0.2
 
 # define IMGS_X 64
 # define IMGS_Y	64
@@ -38,6 +39,8 @@
 # define K_S 1
 # define K_A 0
 # define K_D 2
+# define K_L_ARROW 123
+# define K_R_ARROW 124
 
 # define R	"\x1B[31m"	// RED
 # define G	"\x1B[32m"	// GREEN
@@ -230,5 +233,12 @@ void		read_keys(t_core core);
 int			input(int key, t_core *core);
 int			get_pos(t_mapconf mapconf, char **map, char pos);
 
+//MOVEMENTS
 
+t_core		*move_front(t_core *core);
+t_core		*move_back(t_core *core);
+t_core		*move_left(t_core *core);
+t_core		*move_right(t_core *core);
+t_core		*rotation_left(t_core *core);
+t_core		*rotation_right(t_core *core);
 #endif

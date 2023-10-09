@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:03:35 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/09 12:22:03 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/09 18:08:32 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,9 @@ int	main(int argc, char **argv)
 	}
 	atexit(ft_leaks);
 	core = cb_init(argv);
-	printcore(core);
+	//printcore(core);
 	core.player = init_player_datas(core);
-	print_player_stuff(&core.player);
-	printf("%sCoords: (%f, %f)%s\n", Y, core.player.pos.x, core.player.pos.y, W);
+	//print_player_stuff(&core.player);
 	core.player.p_img.img_ptr = mlx_new_image(core.mlx, WIDTH, HEIGHT);
 	core.player.p_img.data = (int *)mlx_get_data_addr(core.player.p_img.img_ptr,
 			&core.player.p_img.bpp, &core.player.p_img.size_l,
