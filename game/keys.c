@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/09 18:42:57 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/09 19:04:58 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_core	*rotation_left(t_core *core)
 	double	planex;
 	double	planey;
 
+	printf("TEST\n");
 	dirx = core->player.dir.x;
 	diry = core->player.dir.y;
 	core->player.dir.x = dirx * cos(-RSPEED) - diry * sin(-RSPEED);
@@ -66,6 +67,6 @@ int	input(int key, t_core *core)
 		core = rotation_left(core);
 	if (key == K_R_ARROW)
 		core = rotation_right(core);
-	//print_player_stuff(&core->player);
 	return (0);
 }
+
