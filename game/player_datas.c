@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:09:29 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/06 12:36:31 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/09 11:42:15 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,6 @@ t_player	init_player_datas(t_core core)
 	player.pos.y = player.grid_coord.y + 0.5;
 	player = get_plane(core, player, x, y);
 	player = get_cam(core, player);
+
 	return (player);
 }
