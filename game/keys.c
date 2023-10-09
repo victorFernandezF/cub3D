@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/09 19:04:58 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/09 19:12:04 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ t_core	*rotation_left(t_core *core)
 	double	planex;
 	double	planey;
 
-	printf("TEST\n");
 	dirx = core->player.dir.x;
 	diry = core->player.dir.y;
 	core->player.dir.x = dirx * cos(-RSPEED) - diry * sin(-RSPEED);
