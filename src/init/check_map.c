@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:21:47 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/19 08:44:07 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/10 08:52:32 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,4 +105,23 @@ bool	cb_check_map(char **file)
 	val = cb_chars_map(tmp);
 	free(tmp);
 	return (val);
+}
+
+bool	cb_map_elines(char **map)
+{
+	int	y;
+
+	y = 0;
+	while (map[y][0] == '*')
+		y++;
+	while (map[y])
+	{
+		if (map[y][0] == '*')
+		{
+			ft_putstr_fd("Empty lines on map\n", 2);
+			return (true);
+		}
+		y++;
+	}
+	return (false);
 }

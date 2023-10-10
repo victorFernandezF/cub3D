@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/09 19:05:04 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/10 08:47:16 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,7 @@ char		**cb_getmap(char **file);
 char		**cb_getmap_fill(char **file);
 bool		cb_check_map(char **map);
 bool		cb_chars_map(char **map);
+bool		cb_map_elines(char **map);
 bool		cb_closecheck(t_core *core);
 void		cb_check_xpm(t_core *core);
 
