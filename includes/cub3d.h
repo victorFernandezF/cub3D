@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/10 08:47:16 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/11 13:11:52 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 
 # define WIDTH 900
 # define HEIGHT 600
-# define MSPEED 0.2
-# define RSPEED 0.2
+# define MSPEED 0.3
+# define RSPEED 0.1
 
 # define IMGS_X 64
 # define IMGS_Y	64
@@ -137,6 +137,7 @@ typedef struct s_texture
 //Player struct
 typedef struct s_player
 {
+	int				test;
 	char			player;
 	t_vector		pos;
 	t_vector		grid_coord;
@@ -236,10 +237,13 @@ int			get_pos(t_mapconf mapconf, char **map, char pos);
 
 //MOVEMENTS
 
+void		printcore(t_core core);
+
+t_core		*rotation(t_core *core, char direction);
+int			check_limit_front(t_player pl, char **map);
+int			check_limit_back(t_player pl, char **map);
 t_core		*move_front(t_core *core);
 t_core		*move_back(t_core *core);
 t_core		*move_left(t_core *core);
 t_core		*move_right(t_core *core);
-t_core		*rotation_left(t_core *core);
-t_core		*rotation_right(t_core *core);
 #endif

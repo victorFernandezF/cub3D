@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:09:29 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/09 11:42:15 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/11 10:43:23 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ t_player	init_player_datas(t_core core)
 	int			y;
 
 	player.line.height = 0;
+	player.test = 0;
 	player.line.start = 0;
 	player.line.end = 0;
 	player.plane.x = 0;

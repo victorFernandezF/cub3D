@@ -20,7 +20,8 @@ SRC = 		src/cub3d.c \
 			game/print.c \
 			game/print_test.c \
 			game/keys.c \
-			game/movements.c
+			game/movements.c \
+			game/check_move_limitation.c
 
 
 OSRC = $(SRC:.c=.o)

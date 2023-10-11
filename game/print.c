@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 13:56:38 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/06 13:49:29 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/11 11:19:15 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	print_3d_map(t_core core, t_player pl, int x)
 	print_ceiling(core, pl, x);
 	while (++y < end)
 	{
-		color = cb_makecolor("130,26,0");
+		color = cb_makecolor("3,25,140");
 		if (pl.is_side == 1)
-			color = cb_makecolor("163,48,20");
+			color = cb_makecolor("24,59,237");
 		pl.p_img.data[y * WIDTH + x] = color;
 	}
 	print_floor(core, pl, x);
