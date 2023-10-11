@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 11:29:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/11 11:18:03 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/11 18:54:17 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,16 @@ void	print_player_stuff(t_player *player)
 	printf(" player map pos(%i, %i)%s\n",
 		player->map.x, player->map.y, G);
 	print_test2(player);
+}
+
+void	testing_border_detector(t_core *core)
+{
+	printf("dir: (%f, %f)\npos: (%f, %f)\n%c\n  %c\n%c P %c \n  %c\n\n",
+		core->player.pos.x, core->player.pos.y,
+		core->player.dir.x, core->player.dir.y,
+		core->map[(int)(core->player.pos.y)][(int)(core->player.pos.x)],
+		core->map[(int)(core->player.pos.y - 1)][(int)(core->player.pos.x)],
+		core->map[(int)(core->player.pos.y)][(int)(core->player.pos.x - 1)],
+		core->map[(int)(core->player.pos.y)][(int)(core->player.pos.x + 1)],
+		core->map[(int)(core->player.pos.y + 1)][(int)(core->player.pos.x)]);
 }

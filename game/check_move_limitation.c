@@ -6,11 +6,25 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 12:44:52 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/11 13:32:48 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/11 18:12:45 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+double	find_next_top_wall(char **map, t_player pl)
+{
+	int	y;
+
+	y = pl.pos.y;
+	while (map[y])
+	{
+		if (map[y][(int)pl.pos.x] == '1')
+			return ((double)y);
+		y--;
+	}
+	return (0);
+}
 
 int	check_limit_front(t_player pl, char **map)
 {

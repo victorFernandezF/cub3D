@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/11 13:11:52 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/11 18:40:02 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,10 +230,13 @@ t_player	calculate_height_line(t_player player);
 void		print_ceiling(t_core core, t_player pl, int x);
 void		print_floor(t_core core, t_player pl, int x);
 void		print_3d_map(t_core core, t_player pl, int x);
-void		print_player_stuff(t_player *player);
 void		read_keys(t_core core);
 int			input(int key, t_core *core);
 int			get_pos(t_mapconf mapconf, char **map, char pos);
+
+// TESTING
+void		print_player_stuff(t_player *player);
+void		testing_border_detector(t_core *core);
 
 //MOVEMENTS
 
