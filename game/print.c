@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 13:56:38 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/11 13:50:08 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:10:08 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,3 +55,4 @@ void	print_3d_map(t_core core, t_player pl, int x)
 	}
 	print_floor(core, pl, x);
 }
+//side 0 rayx big 0 -> texx = Width - texx -1

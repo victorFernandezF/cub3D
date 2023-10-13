@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:23:39 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/09 18:07:43 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:05:29 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,11 @@ t_player	raycasting(t_player player, char **map)
 t_player	rc_start(t_core core)
 {
 	t_player	player;
+	t_pimg		img;
 	int			x;
 
+	img.data = (int *)mlx_get_data_addr(core.imgs.n, &img.bpp, &img.size_l, &img.endian);
+	core.text = img;
 	player = core.player;
 	x = 0;
 	while (x < WIDTH)

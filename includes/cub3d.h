@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/11 18:40:02 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/13 13:17:16 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ typedef struct s_player
 	t_vector		pos;
 	t_vector		grid_coord;
 	t_vector		dir;
+	char			dirn;
 	t_vector		plane;
 	t_point			map;
 	t_vector		ray_dir;
@@ -170,6 +171,7 @@ typedef struct s_core
 	t_img		imgs;
 	char		**map;
 	t_player	player;
+	t_pimg		text;
 }	t_core;
 
 //Init fuctions
@@ -249,4 +251,8 @@ t_core		*move_front(t_core *core);
 t_core		*move_back(t_core *core);
 t_core		*move_left(t_core *core);
 t_core		*move_right(t_core *core);
+
+int			get_cuadrant(t_player pl);
+int			check_quadrant_1(t_player pl, char **map);
+int			check_quadrant_3(t_player pl, char **map);
 #endif
