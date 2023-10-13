@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 09:44:54 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/13 13:22:03 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:03:18 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,16 @@ char	**cb_getmap_fill(char **file)
 	int		j;
 
 	i = 0;
+	j = -1;
 	while (file[i])
 		i++;
+	while (cb_emptyln(file[++j]))
+		i--;
 	map = (char **)malloc((i - 5) * sizeof(char *));
 	i = 6;
 	j = 0;
+	while (cb_emptyln(file[i]))
+		i++;
 	while (file[i])
 	{
 		map[j] = cb_fillrows_full(file[i], cb_maxx(file));
