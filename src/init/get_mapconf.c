@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 10:57:35 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/20 08:53:57 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/13 13:01:24 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 t_mapconf	cb_init_mc(void);
 void		cb_fill_text(t_mapconf *mapconf, char t, char *str, char **mfile);
+bool		cb_is_mapln(char *line);
+void		cb_param_fail(char *line);
 
 char	*cb_routefile(char *str)
 {
@@ -111,7 +113,7 @@ t_mapconf	cb_getmapconf(char **file)
 
 	mapconf = cb_init_mc();
 	i = 0;
-	while (file[i] && i < 6)
+	while (file[i] && (!cb_is_mapln(file[i]) && !cb_emptyln(file[i])))
 	{
 		type = cb_isparam(file[i]);
 		if (type)
@@ -123,8 +125,9 @@ t_mapconf	cb_getmapconf(char **file)
 		}
 		else
 		{
+			cb_param_fail(file[i]);
 			cb_freemat(file);
-			cb_fail("Wrong map params\n");
+			cb_fail("Error\nWrong map params\n");
 		}
 		i++;
 	}

@@ -2,6 +2,7 @@ SRC = 		src/cub3d.c \
 			src/init/init.c \
 			src/init/get_file.c \
 			src/init/get_mapconf.c \
+			src/init/check_mapconf.c \
 			src/init/check_params.c \
 			src/init/get_map.c \
 			src/init/check_map.c \
@@ -13,6 +14,7 @@ SRC = 		src/cub3d.c \
 			src/utils/utils_mem.c \
 			src/utils/cb_split.c \
 			src/utils/utils_map.c \
+			src/utils/utils_params.c \
 			game/player_datas.c \
 			game/raycasting.c\
 			game/raycasting_2.c\

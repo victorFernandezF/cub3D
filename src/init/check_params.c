@@ -6,11 +6,13 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 12:24:51 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/19 19:00:21 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/13 13:11:41 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+bool	cb_mc_error(t_mapconf mapconf);
 
 bool	cb_extcheck_text(char *str)
 {
@@ -75,9 +77,16 @@ bool	cb_checkfile(char *file)
 
 bool	cb_check_params(t_core *core)
 {
-	if (core->mapconf.c_color == -1 || core->mapconf.f_color == -1)
+	if (cb_mc_error(core->mapconf))
+		return (false);
+	if (core->mapconf.c_color == -1)
 	{
-		ft_putstr_fd("Error\nColor only [C-F] [0-255], [0-255], [0-255]\n", 2);
+		ft_putstr_fd("Error\nCeiling color ex: C [0-255], [0-255], [0-255]\n", 2);
+		return (false);
+	}
+	if (core->mapconf.f_color == -1)
+	{
+		ft_putstr_fd("Error\nFloor color ex: F [0-255], [0-255], [0-255]\n", 2);
 		return (false);
 	}
 	if (!cb_extcheck_text(core->mapconf.n_file)
