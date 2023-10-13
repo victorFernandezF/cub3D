@@ -6,11 +6,34 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:49:39 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/18 15:38:52 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:29:32 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+void	cb_examplefile(void)
+{
+	printf("\n*****\nExample map file:\n");
+	printf("NO textures/test/north.xpm\n");
+	printf("SO textures/test/south.xpm\n");
+	printf("WE textures/test/west.xpm\n");
+	printf("EA textures/test/east.xpm\n");
+	printf("\n");
+	printf("C 200,200,200\n");
+	printf("F 100,200,150\n");
+	printf("\n");
+	printf("11111\n");
+	printf("10001\n");
+	printf("10S01\n");
+	printf("10001\n");
+	printf("10001\n");
+	printf("11001\n");
+	printf("10001\n");
+	printf("10001\n");
+	printf("11111\n");
+	printf("*****\n\n");
+}
 
 bool	cb_check_players(int p)
 {
