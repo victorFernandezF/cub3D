@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:21:47 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/13 13:06:14 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/16 09:04:46 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 bool	cb_charsallow_play(char c);
 bool	cb_charsallow_map(char c);
 bool	cb_failchar(char c);
-bool	cb_check_players(int p);
+bool	cb_check_players(char **map, int p);
 void	cb_ff(char **tab, t_point size, t_point begin, int	*f);
 
 t_point	cb_get_begin(char **map)
@@ -60,7 +60,7 @@ bool	cb_closecheck(t_core *core)
 	if ((f != 0) || ((begin.x == 0 || begin.x == size.x)
 			|| (begin.y == 0 || begin.y == size.y)))
 	{
-		ft_putstr_fd("Error:\nMap not closed\n", 2);
+		ft_putstr_fd("Error\nMap not closed\n", 2);
 		cb_freemat(tmp);
 		return (false);
 	}
@@ -93,18 +93,14 @@ bool	cb_chars_map(char **map)
 				return (cb_failchar(map[y][x]));
 		}
 	}
-	return (cb_check_players(player));
+	return (cb_check_players(map, player));
 }
 
-bool	cb_check_map(char **file)
+bool	cb_check_map(char **map)
 {
-	char	**tmp;
-	bool	val;
-
-	tmp = cb_getmap(file);
-	val = cb_chars_map(tmp);
-	free(tmp);
-	return (val);
+	if (!map)
+		return (false);
+	return (true);
 }
 
 bool	cb_map_elines(char **map)
