@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:23:39 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/13 10:05:29 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/16 18:40:41 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,32 @@ t_player	raycasting(t_player player, char **map)
 	return (player);
 }
 
+t_core	get_texture_data(t_core core)
+{
+	core.tex_n.ptr = core.imgs.n;
+	core.tex_n.data = (int *)mlx_get_data_addr(core.tex_n.ptr, &core.tex_n.bpp,
+			&core.tex_n.size_l, &core.tex_n.endian);
+	/* tex.ptr = core.imgs.s;
+	tex.data = (int *)mlx_get_data_addr(tex.ptr, &tex.bpp,
+			&tex.size_l, &tex.endian);
+	core.tex_s = tex;
+	tex.ptr = core.imgs.e;
+	tex.data = (int *)mlx_get_data_addr(tex.ptr, &tex.bpp,
+			&tex.size_l, &tex.endian);
+	core.tex_e = tex;
+	tex.ptr = core.imgs.w;
+	tex.data = (int *)mlx_get_data_addr(tex.ptr, &tex.bpp,
+			&tex.size_l, &tex.endian);
+	core.tex_w = tex; */
+	return (core);
+}
+
 t_player	rc_start(t_core core)
 {
 	t_player	player;
-	t_pimg		img;
 	int			x;
 
-	img.data = (int *)mlx_get_data_addr(core.imgs.n, &img.bpp, &img.size_l, &img.endian);
-	core.text = img;
+	core = get_texture_data(core);
 	player = core.player;
 	x = 0;
 	while (x < WIDTH)

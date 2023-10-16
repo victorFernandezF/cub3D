@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/13 13:17:16 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/16 13:04:46 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,14 +124,11 @@ typedef struct s_line
 
 typedef struct s_texture
 {
-	int		num;
-	int		with;
-	int		height;
-	double	wall;
-	double	pos;
-	int		x;
 	void	*ptr;
-	t_pimg	datas;
+	int		*data;
+	int		size_l;
+	int		bpp;
+	int		endian;
 }	t_texture;
 
 //Player struct
@@ -155,7 +152,6 @@ typedef struct s_player
 	int				is_side;
 	void			*img;
 	t_pimg			p_img;
-	t_texture		tex;
 }	t_player;
 
 //Main struct
@@ -171,7 +167,10 @@ typedef struct s_core
 	t_img		imgs;
 	char		**map;
 	t_player	player;
-	t_pimg		text;
+	t_texture	tex_n;
+	t_texture	tex_s;
+	t_texture	tex_e;
+	t_texture	tex_w;
 }	t_core;
 
 //Init fuctions
