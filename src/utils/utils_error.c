@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:49:39 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/16 09:01:59 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/17 13:38:14 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	cb_examplefile(void)
 {
-	printf("\n*****\nExample map file:\n");
+	printf("\nExample file:\n*****\n");
 	printf("NO textures/test/north.xpm\t\\\n");
 	printf("SO textures/test/south.xpm\t|\n");
 	printf("WE textures/test/west.xpm\t|\n");
@@ -33,23 +33,6 @@ void	cb_examplefile(void)
 	printf("10001\t\t\t\t|\n");
 	printf("11111\t\t\t\t/\n");
 	printf("*****\n\n");
-}
-
-bool	cb_check_players(char **map, int p)
-{
-	if (!cb_check_map(map))
-		return (false);
-	if (p < 1)
-	{
-		ft_putstr_fd("Error\nNeeded one player\n", 2);
-		return (false);
-	}
-	if (p > 1)
-	{
-		ft_putstr_fd("Error\nOnly one player allowed\n", 2);
-		return (false);
-	}
-	return (true);
 }
 
 bool	cb_failchar(char c)

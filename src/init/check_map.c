@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 13:21:47 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/16 09:04:46 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/17 13:52:35 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 bool	cb_charsallow_play(char c);
 bool	cb_charsallow_map(char c);
 bool	cb_failchar(char c);
-bool	cb_check_players(char **map, int p);
+bool	cb_mapln_cnt(char *line);
+int		cb_size_y(char **map);
+void	cb_examplefile(void);
 void	cb_ff(char **tab, t_point size, t_point begin, int	*f);
 
 t_point	cb_get_begin(char **map)
@@ -71,6 +73,23 @@ bool	cb_closecheck(t_core *core)
 	}
 }
 
+bool	cb_check_players(char **map, int p)
+{
+	if (!cb_check_map(map))
+		return (false);
+	if (p < 1)
+	{
+		ft_putstr_fd("Error\nNeeded one player\n", 2);
+		return (false);
+	}
+	if (p > 1)
+	{
+		ft_putstr_fd("Error\nOnly one player allowed\n", 2);
+		return (false);
+	}
+	return (true);
+}
+
 bool	cb_chars_map(char **map)
 {
 	int	x;
@@ -98,26 +117,28 @@ bool	cb_chars_map(char **map)
 
 bool	cb_check_map(char **map)
 {
-	if (!map)
-		return (false);
-	return (true);
-}
+	int	i;
+	int	lns;
 
-bool	cb_map_elines(char **map)
-{
-	int	y;
-
-	y = 0;
-	while (map[y][0] == '*')
-		y++;
-	while (map[y])
+	i = 6;
+	lns = 0;
+	while (map[i])
 	{
-		if (map[y][0] == '*')
-		{
-			ft_putstr_fd("Empty lines on map\n", 2);
-			return (true);
-		}
-		y++;
+		if (cb_mapln_cnt(map[i]))
+			lns++;
+		i++;
 	}
-	return (false);
+	if (lns == 0)
+	{
+		ft_putstr_fd("Error\nMap needed\n", 2);
+		cb_examplefile();
+		return (false);
+	}
+	if (lns < 3 || cb_size_y(map) < 3)
+	{
+		ft_putstr_fd("Error\nMap minimun 3 lines X 3 rows\n", 2);
+		cb_examplefile();
+		return (false);
+	}
+	return (true);
 }

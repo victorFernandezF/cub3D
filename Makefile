@@ -15,6 +15,7 @@ SRC = 		src/cub3d.c \
 			src/utils/cb_split.c \
 			src/utils/utils_map.c \
 			src/utils/utils_params.c \
+			src/utils/utils_debug.c \
 			game/player_datas.c \
 			game/raycasting.c\
 			game/raycasting_2.c\
