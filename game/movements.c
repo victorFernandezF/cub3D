@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 18:20:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/17 17:55:48 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/17 18:15:31 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 // Move the player one spet forward (if there are no walls)
 t_core	*move_front(t_core *core)
 {
-	if (check_limit_front(core->player, core->map) == -1)
-		return (core);
 	if (core->map[(int)(core->player.pos.y + core->player.dir.y * MSPEED)]
 		[(int)core->player.pos.x] != '1')
 			core->player.pos.y += core->player.dir.y * MSPEED;
