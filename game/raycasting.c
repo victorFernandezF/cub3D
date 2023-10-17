@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:23:39 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/17 17:52:00 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/17 18:10:15 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,8 @@ t_player	rc_start(t_core core)
 
 	core = get_texture_data(core);
 	player = core.player;
-	x = 0;
-	while (x < WIDTH)
+	x = -1;
+	while (++x < WIDTH)
 	{
 		player = get_ray_and_positions(player, x);
 		player = get_delta_dist(player);
@@ -112,9 +112,7 @@ t_player	rc_start(t_core core)
 		player = calculate_wall_dist(player);
 		player = calculate_height_line(player);
 		print_3d_map(core, player, x);
-		x++;
 	}
 	mlx_put_image_to_window(core.mlx, core.win, player.p_img.img_ptr, 0, 0);
-	core.player = player;
 	return (player);
 }
