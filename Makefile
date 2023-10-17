@@ -46,6 +46,8 @@ $(NAME): $(OSRC)
 	cp mlx/libmlx.a .
 	$(CC) $(CFLAGS) -o $(NAME) $(OSRC) -lft -lmlx -L. -framework OpenGL -framework AppKit
 
+norminette:
+	norminette $(SRC)
 clean:
 	make clean -C libft
 	make clean -C mlx
