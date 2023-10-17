@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 13:56:38 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/16 19:17:02 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/17 12:12:26 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,26 +37,40 @@ void	print_floor(t_core core, t_player pl, int x)
 		pl.p_img.data[y * WIDTH + x] = color;
 }
 
+int	get_color_of_texture(t_core core, t_player pl, int x, int y)
+{
+	int			tex_x;
+	int			tex_y;
+	t_texture	tex_tmp;
+	int			color;
+
+	color = 1;
+	if (pl.side == 'N')
+		tex_tmp = core.tex_n;
+	if (pl.side == 'S')
+		tex_tmp = core.tex_s;
+	if (pl.side == 'E')
+		tex_tmp = core.tex_e;
+	if (pl.side == 'W')
+		tex_tmp = core.tex_w;
+	tex_x = x % tex_tmp.size_l;
+	tex_y = y % tex_tmp.bpp;
+	color = *(int *)(tex_tmp.data + (tex_y
+				* tex_tmp.size_l) + (tex_x * (tex_tmp.bpp / 8)));
+	return (color);
+}
+
 void	print_texture(t_core core, t_player pl, int x)
 {
-	int	y;
-	int	end;
-	int	tex_x;
-	int	tex_y;
-	int	color;
+	int				y;
+	int				end;
+	unsigned int	color;
 
 	y = pl.line.start - 1;
 	end = pl.line.end;
 	while (++y < end)
 	{
-		tex_x = x % core.tex_n.size_l;
-		tex_y = y % core.tex_n.bpp;
-		//color = cb_makecolor("3,25,140");
-		color = *(unsigned int *)(core.tex_n.data + (tex_y
-					* core.tex_n.size_l) + (tex_x * (core.tex_n.bpp / 8)));
-		//printf("color %i\n", color);
-		if (pl.is_side == 1)
-			color = cb_makecolor("24,59,237");
+		color = get_color_of_texture(core, pl, x, y);
 		pl.p_img.data[y * WIDTH + x] = color;
 	}
 }
@@ -67,4 +81,3 @@ void	print_3d_map(t_core core, t_player pl, int x)
 	print_texture(core, pl, x);
 	print_floor(core, pl, x);
 }
-//side 0 rayx big 0 -> texx = Width - texx -1

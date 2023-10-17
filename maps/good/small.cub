@@ -1,12 +1,13 @@
-NO textures/test/bricks.xpm
-SO textures/test/south.xpm
-WE textures/test/west.xpm
-EA textures/test/east.xpm
+NO textures/test/w_north.xpm
+SO textures/test/w_south.xpm
+WE textures/test/w_west.xpm
+EA textures/test/w_est.xpm
 
 F 164,169,20
 C 153,204,255
 
 1111111
+1000001
 1000001
 1010001
 1000001

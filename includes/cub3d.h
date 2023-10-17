@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/16 13:04:46 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/17 12:11:54 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ typedef struct s_texture
 typedef struct s_player
 {
 	int				test;
+	char			side;
 	char			player;
 	t_vector		pos;
 	t_vector		grid_coord;
@@ -243,6 +244,7 @@ void		testing_border_detector(t_core *core);
 
 void		printcore(t_core core);
 
+int			get_color_of_texture(t_core core, t_player pl, int x, int y);
 t_core		*rotation(t_core *core, char direction);
 int			check_limit_front(t_player pl, char **map);
 int			check_limit_back(t_player pl, char **map);
