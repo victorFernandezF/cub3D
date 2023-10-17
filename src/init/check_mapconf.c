@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 10:41:16 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/13 13:12:47 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/17 13:36:45 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,6 @@
 unsigned char	cb_isparam(char *line);
 bool			cb_is_mapln(char *line);
 void			cb_examplefile(void);
-
-/*void	cb_nparams(char **file)
-{
-	int	i;
-
-	i = 0;
-	while (file[i] && !cb_is_mapln(file[i]))
-	{
-		i++;
-	}
-	if (i != 6)
-	{
-		cb_freemat(file);
-		ft_putstr_fd("Error\nWrong map params\n", 2);
-		cb_examplefile();
-		exit (1);
-	}
-}*/
 
 void	cb_param_miss(t_mapconf mapconf)
 {
@@ -69,6 +51,34 @@ bool	cb_mc_error(t_mapconf mapconf)
 		cb_param_miss(mapconf);
 		return (true);
 	}
+	else
+		return (false);
+}
+
+bool	cb_mapln_cnt(char *line)
+{
+	int	i;
+	int	w;
+	int	f;
+	int	p;
+
+	i = 0;
+	w = 0;
+	f = 0;
+	p = 0;
+	while (line[i])
+	{
+		if (line[i] == '1')
+			w++;
+		if (line[i] == '0')
+			f++;
+		if (line[i] == 'S' || line[i] == 'N' || line[i] == 'E'
+			|| line[i] == 'W')
+			p++;
+		i++;
+	}
+	if (w > 1)
+		return (true);
 	else
 		return (false);
 }

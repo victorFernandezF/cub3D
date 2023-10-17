@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:50:58 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/18 11:41:10 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/17 08:39:08 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,31 +56,21 @@ int	cb_strlen(char *s)
 	return (i);
 }
 
-void	printmat(char **mat)
+bool	cb_map_elines(char **map)
 {
-	int	i;
+	int	y;
 
-	i = 0;
-	while (mat[i])
+	y = 0;
+	while (map[y][0] == '*')
+		y++;
+	while (map[y])
 	{
-		ft_printf("str: <%s>\n", mat[i]);
-		i++;
+		if (map[y][0] == '*')
+		{
+			ft_putstr_fd("Empty lines on map\n", 2);
+			return (true);
+		}
+		y++;
 	}
-}
-
-void	cb_printmc(t_mapconf *mapconf)
-{
-	printf("\n\n");
-	printf("C color: %d -> %X\n", mapconf->c_color, mapconf->c_color);
-	printf("F color: %d -> %X\n\n", mapconf->f_color, mapconf->f_color);
-	if (mapconf->n_file)
-		printf("N file: <%s>\n", mapconf->n_file);
-	if (mapconf->s_file)
-		printf("S file: <%s>\n", mapconf->s_file);
-	if (mapconf->e_file)
-		printf("E file: <%s>\n", mapconf->e_file);
-	if (mapconf->w_file)
-		printf("W file: <%s>\n\n", mapconf->w_file);
-	printf("Map X size: %d\n", mapconf->map_x);
-	printf("Map Y size: %d\n", mapconf->map_y);
+	return (false);
 }
