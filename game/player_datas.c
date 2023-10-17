@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:09:29 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/17 10:50:44 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/17 18:02:22 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,16 @@ static t_player	get_plane(t_core core, t_player pl, int x, int y)
 	return (pl);
 }
 
+t_pimg	get_image_datas(t_core core)
+{
+	t_pimg	img;
+
+	img.img_ptr = mlx_new_image(core.mlx, WIDTH, HEIGHT);
+	img.data = (int *)mlx_get_data_addr(img.img_ptr,
+			&img.bpp, &img.size_l, &img.endian);
+	return (img);
+}
+
 t_player	init_player_datas(t_core core)
 {
 	t_player	player;
@@ -94,5 +104,6 @@ t_player	init_player_datas(t_core core)
 	player.pos.y = player.grid_coord.y + 0.5;
 	player = get_plane(core, player, x, y);
 	player = get_cam(core, player);
+	player.p_img = get_image_datas(core);
 	return (player);
 }

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:03:35 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/11 11:16:47 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/17 18:03:39 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,9 @@ int	main(int argc, char **argv)
 	core = cb_init(argv);
 	printcore(core);
 	core.player = init_player_datas(core);
-	print_player_stuff(&core.player);
-	core.player.p_img.img_ptr = mlx_new_image(core.mlx, WIDTH, HEIGHT);
-	core.player.p_img.data = (int *)mlx_get_data_addr(core.player.p_img.img_ptr,
-			&core.player.p_img.bpp, &core.player.p_img.size_l,
-			&core.player.p_img.endian);
-	//mlx_put_image_to_window(core.mlx, core.win, core.imgs.n, IMGS_X, IMGS_Y);
 	mlx_hook(core.win, 17, 0, cb_exit, &core);
 	mlx_hook(core.win, 2, 0, input, &core);
 	core.player = rc_start(core);
-	//cb_exit(&core);
 	mlx_loop(core.mlx);
 	cb_freecore(&core);
 	return (0);

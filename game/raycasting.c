@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:23:39 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/17 11:58:07 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/17 17:52:00 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ t_player	rc_start(t_core core)
 	x = 0;
 	while (x < WIDTH)
 	{
-		player = get_ray_and_positions(core, player, x);
+		player = get_ray_and_positions(player, x);
 		player = get_delta_dist(player);
 		player = calculate_side_dsst(player);
 		player = raycasting(player, core.map);

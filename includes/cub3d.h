@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/17 12:11:54 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/17 18:03:11 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,21 +217,26 @@ void		cb_printmc(t_mapconf *mapconf);
 int			cb_makecolor(char *str);
 int			cb_exit(t_core *core);
 
-// Raycasting and printing
+// RAYCASTING AND PRINTING MAP
 t_player	init_player_datas(t_core core);
 t_player	get_cam(t_core core, t_player pl);
 
 t_vector	sum_vectors(t_vector a, t_vector b);
 t_vector	sub_vectors(t_vector a, t_vector b);
 t_player	rc_start(t_core core);
-t_player	get_ray_and_positions(t_core core, t_player player, int x);
+t_player	get_ray_and_positions(t_player player, int x);
 t_player	get_delta_dist(t_player player);
 t_player	raycasting(t_player player, char **map);
 t_player	calculate_wall_dist(t_player player);
 t_player	calculate_height_line(t_player player);
+
 void		print_ceiling(t_core core, t_player pl, int x);
 void		print_floor(t_core core, t_player pl, int x);
+void		print_texture(t_core core, t_player pl, int x);
 void		print_3d_map(t_core core, t_player pl, int x);
+
+
+// KEY AND INPUT
 void		read_keys(t_core core);
 int			input(int key, t_core *core);
 int			get_pos(t_mapconf mapconf, char **map, char pos);
@@ -244,6 +249,7 @@ void		testing_border_detector(t_core *core);
 
 void		printcore(t_core core);
 
+t_pimg		get_image_datas(t_core core);
 int			get_color_of_texture(t_core core, t_player pl, int x, int y);
 t_core		*rotation(t_core *core, char direction);
 int			check_limit_front(t_player pl, char **map);
