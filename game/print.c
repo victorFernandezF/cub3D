@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 13:56:38 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/17 12:12:26 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/17 19:01:42 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ void	print_ceiling(t_core core, t_player pl, int x)
 	int	start;
 	int	color;
 
-	y = -1;
+	y = 0;
 	start = pl.line.start;
 	color = core.mapconf.c_color;
 	while (++y < start)
 		pl.p_img.data[y * WIDTH + x] = color;
+	pl.p_img.data[(pl.line.start - 1) * WIDTH + x] = cb_makecolor("0,0,0");
 }
 
 void	print_floor(t_core core, t_player pl, int x)
@@ -32,6 +33,7 @@ void	print_floor(t_core core, t_player pl, int x)
 	int	color;
 
 	y = pl.line.end - 1;
+	pl.p_img.data[(pl.line.end - 1) * WIDTH + x] = cb_makecolor("0,0,0");
 	color = core.mapconf.f_color;
 	while (++y < HEIGHT)
 		pl.p_img.data[y * WIDTH + x] = color;
@@ -41,8 +43,8 @@ int	get_color_of_texture(t_core core, t_player pl, int x, int y)
 {
 	int			tex_x;
 	int			tex_y;
-	t_texture	tex_tmp;
 	int			color;
+	t_texture	tex_tmp;
 
 	color = 1;
 	if (pl.side == 'N')
