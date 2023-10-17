@@ -6,15 +6,14 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 12:25:59 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/06 13:16:17 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/17 17:51:50 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-t_player	get_ray_and_positions(t_core core, t_player player, int x)
+t_player	get_ray_and_positions(t_player player, int x)
 {
-	(void)core;
 	player.cam.x = 2 * x / (double) WIDTH - 1;
 	player.ray_dir.x = player.dir.x + player.plane.x * player.cam.x;
 	player.ray_dir.y = player.dir.y + player.plane.y * player.cam.x;
