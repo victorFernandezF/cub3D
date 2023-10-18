@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 13:56:38 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/17 19:01:42 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/18 18:58:59 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,41 +39,23 @@ void	print_floor(t_core core, t_player pl, int x)
 		pl.p_img.data[y * WIDTH + x] = color;
 }
 
-int	get_color_of_texture(t_core core, t_player pl, int x, int y)
-{
-	int			tex_x;
-	int			tex_y;
-	int			color;
-	t_texture	tex_tmp;
-
-	color = 1;
-	if (pl.side == 'N')
-		tex_tmp = core.tex_n;
-	if (pl.side == 'S')
-		tex_tmp = core.tex_s;
-	if (pl.side == 'E')
-		tex_tmp = core.tex_e;
-	if (pl.side == 'W')
-		tex_tmp = core.tex_w;
-	tex_x = x % tex_tmp.size_l;
-	tex_y = y % tex_tmp.bpp;
-	color = *(int *)(tex_tmp.data + (tex_y
-				* tex_tmp.size_l) + (tex_x * (tex_tmp.bpp / 8)));
-	return (color);
-}
-
 void	print_texture(t_core core, t_player pl, int x)
 {
-	int				y;
-	int				end;
-	unsigned int	color;
+	t_printtex	tex;
+	t_texture	tex_tmp;
+	int			y;
+	int			end;
 
+	tex = get_texture_datas(core, pl);
+	tex_tmp = get_correct_texture(core, pl);
 	y = pl.line.start - 1;
 	end = pl.line.end;
 	while (++y < end)
 	{
-		color = get_color_of_texture(core, pl, x, y);
-		pl.p_img.data[y * WIDTH + x] = color;
+		tex.tex_y = (int)tex.texpos & (IMGS_X - 1);
+		tex.texpos += tex.step;
+		tex.color = tex_tmp.data[(int)(tex.tex_y * IMGS_X + tex.tex_x)];
+		pl.p_img.data[y * WIDTH + x] = tex.color;
 	}
 }
 

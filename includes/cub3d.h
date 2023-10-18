@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/17 18:03:11 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/18 19:04:46 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,18 @@ typedef struct s_texture
 	int		endian;
 }	t_texture;
 
+// Datas of the trexture such as positions, color ..., 
+typedef struct s_printtex
+{
+	unsigned int	color;
+	int				tex_x;
+	int				texnum;
+	double			wallx;
+	double			step;
+	double			texpos;
+	double			tex_y;
+}	t_printtex;
+
 //Player struct
 typedef struct s_player
 {
@@ -235,7 +247,6 @@ void		print_floor(t_core core, t_player pl, int x);
 void		print_texture(t_core core, t_player pl, int x);
 void		print_3d_map(t_core core, t_player pl, int x);
 
-
 // KEY AND INPUT
 void		read_keys(t_core core);
 int			input(int key, t_core *core);
@@ -248,6 +259,9 @@ void		testing_border_detector(t_core *core);
 //MOVEMENTS
 
 void		printcore(t_core core);
+
+t_texture	get_correct_texture(t_core core, t_player pl);
+t_printtex	get_texture_datas(t_core core, t_player pl);
 
 t_pimg		get_image_datas(t_core core);
 int			get_color_of_texture(t_core core, t_player pl, int x, int y);
