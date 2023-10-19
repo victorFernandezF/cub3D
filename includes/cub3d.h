@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/19 13:30:41 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:55:18 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,11 +136,11 @@ typedef struct s_printtex
 {
 	unsigned int	color;
 	int				tex_x;
-	int				texnum;
 	double			wallx;
 	double			step;
 	double			texpos;
 	double			tex_y;
+	double			tex_pos;
 }	t_printtex;
 
 //Player struct
@@ -258,7 +258,7 @@ void		testing_border_detector(t_core *core);
 void		printcore(t_core core);
 
 t_texture	get_correct_texture(t_core core, t_player pl);
-t_printtex	get_texture_datas(t_core core, t_player pl);
+t_printtex	get_texture_datas(t_player pl);
 
 t_pimg		get_image_datas(t_core core);
 int			get_color_of_texture(t_core core, t_player pl, int x, int y);

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 13:56:38 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/19 10:38:12 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/19 18:54:46 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	print_texture(t_core core, t_player pl, int x)
 	int			y;
 	int			end;
 
-	tex = get_texture_datas(core, pl);
+	tex = get_texture_datas(pl);
 	tex_tmp = get_correct_texture(core, pl);
 	y = pl.line.start - 1;
 	end = pl.line.end;
