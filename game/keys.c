@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/17 17:56:33 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/19 13:27:26 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	input(int key, t_core *core)
 {
+	char **tmp;
+	char old;
 	if (key == K_ESC)
 		cb_exit(core);
 	if (key == K_W)
@@ -28,5 +30,13 @@ int	input(int key, t_core *core)
 		core = rotation(core, 'L');
 	if (key == K_R_ARROW)
 		core = rotation(core, 'R');
+	tmp = core->map;
+	old = tmp[(int)core->player.pos.y][(int)core->player.pos.x];
+	tmp[(int)core->player.pos.y][(int)core->player.pos.x] = 'X';
+	printf("\n");
+	printmap(tmp);
+	tmp[(int)core->player.pos.y][(int)core->player.pos.x] = old;
+	//printf("coord [%i][%i]\n",
+		//(int)core->player.map.y, (int)core->player.map.x);
 	return (0);
 }

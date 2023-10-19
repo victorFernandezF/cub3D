@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/19 11:43:43 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/19 13:30:41 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -273,4 +273,6 @@ t_core		*move_right(t_core *core);
 int			get_cuadrant(t_player pl);
 int			check_quadrant_1(t_player pl, char **map);
 int			check_quadrant_3(t_player pl, char **map);
+
+void		printmap(char **mat);
 #endif

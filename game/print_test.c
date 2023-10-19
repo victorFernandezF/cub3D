@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 11:29:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/11 18:54:17 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/19 13:28:14 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,27 @@ void	print_player_stuff(t_player *player)
 	printf(" player map pos(%i, %i)%s\n",
 		player->map.x, player->map.y, G);
 	print_test2(player);
+}
+void	printmap(char **mat)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (mat[i])
+	{
+		j = 0;
+		while (mat[i][j])
+		{
+			if (mat[i][j] == 'X')
+				ft_printf("%s%c%s", G, mat[i][j], W);
+			else
+				ft_printf("%c", mat[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
 }
 
 void	testing_border_detector(t_core *core)
