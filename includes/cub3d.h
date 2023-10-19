@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/18 19:04:46 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/19 11:43:43 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,13 +146,11 @@ typedef struct s_printtex
 //Player struct
 typedef struct s_player
 {
-	int				test;
 	char			side;
 	char			player;
 	t_vector		pos;
 	t_vector		grid_coord;
 	t_vector		dir;
-	char			dirn;
 	t_vector		plane;
 	t_point			map;
 	t_vector		ray_dir;
@@ -163,7 +161,6 @@ typedef struct s_player
 	t_line			line;
 	int				hit;
 	int				is_side;
-	void			*img;
 	t_pimg			p_img;
 }	t_player;
 

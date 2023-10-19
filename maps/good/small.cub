@@ -1,7 +1,7 @@
-SO textures/test/w_south.xpm
-WE textures/test/w_west.xpm
-NO textures/test/w_north.xpm
-EA textures/test/w_east.xpm
+SO textures/tex_1/w_south.xpm
+WE textures/tex_1/w_west.xpm
+NO textures/tex_1/w_north.xpm
+EA textures/tex_1/w_east.xpm
 
 F 164,169,20
 C 153,204,255

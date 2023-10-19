@@ -1,7 +1,7 @@
-NO textures/test/north.xpm
-SO textures/test/south.xpm
-WE textures/test/west.xpm
-EA textures/test/east.xpm
+NO textures/mc/mc_stone.xpm
+SO textures/mc/mc_obsidian.xpm
+WE textures/mc/mc_wood.xpm
+EA textures/mc/mc_ground.xpm
 
 F 164,169,20
 C 153,204,255
@@ -13,5 +13,5 @@ C 153,204,255
 1000001
 1110111
 1000001
-100N101
+100S101
 1111111

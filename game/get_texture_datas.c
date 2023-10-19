@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:58:38 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/18 18:59:06 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/19 10:48:52 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_printtex	get_texture_datas(t_core core, t_player pl)
 {
 	t_printtex	tex;
 
+	printf("test-> %c\n", core.map[pl.map.y][pl.map.x] - 1);
 	tex.texnum = core.map[pl.map.x][pl.map.y] - 1;
 	if (pl.is_side == 0)
 		tex.wallx = pl.pos.y + pl.line.wall_dist * pl.ray_dir.y;
