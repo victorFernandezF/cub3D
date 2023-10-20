@@ -1,7 +1,7 @@
-SO textures/tex_1/w_south.xpm
-WE textures/tex_1/w_west.xpm
-NO textures/tex_1/w_north.xpm
-EA textures/tex_1/w_east.xpm
+SO textures/wolfenstein/blue_stone.xpm
+WE textures/wolfenstein/color_stone.xpm
+NO textures/wolfenstein/eagle.xpm
+EA textures/wolfenstein/grey_stone.xpm
 
 F 164,169,20
 C 153,204,255
@@ -11,10 +11,8 @@ C 153,204,255
 100000000001
 100000000001
 100000000001
-100000000001
-100000000001
-100000000001
-100000000001
+100010100001
+100011100001
 100000000001
 100000000001
 1000000N0001
