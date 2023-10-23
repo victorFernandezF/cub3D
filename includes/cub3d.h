@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/20 13:33:46 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/23 11:58:24 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,166 +22,7 @@
 # include <fcntl.h>
 # include <stdbool.h>
 # include <math.h>
-
-# define DWIN_X 900
-# define DWIN_Y 600
-
-# define WIDTH 900
-# define HEIGHT 600
-# define MSPEED 0.3
-# define RSPEED 0.1
-
-# define IMGS_X 64
-# define IMGS_Y	64
-
-# define K_ESC 53
-# define K_W 13
-# define K_S 1
-# define K_A 0
-# define K_D 2
-# define K_L_ARROW 123
-# define K_R_ARROW 124
-
-# define R	"\x1B[31m"	// RED
-# define G	"\x1B[32m"	// GREEN
-# define B	"\x1B[34m"	// BLUE
-# define Y	"\x1B[33m"	// YELLOW
-# define M	"\x1B[35m"	// MAGENTA
-# define C	"\x1B[36m"	// CYAN
-# define W	"\x1B[0m"	// WHITE
-# define BR	"\x1B[91m"	// BRIGHT RED
-# define BG	"\x1B[92m"	// BRIGHT GREEN
-# define BB	"\x1B[94m"	// BRIGT BLUE
-# define BY	"\x1B[93m"	// BRIGHT YELLOW
-# define BM	"\x1B[95m"	// BRIGHT MAGENTA
-# define BC	"\x1B[96m"	// BRIGHT CYAN
-# define GR	"\x1B[90m" 	// GRAY
-
-//Size map struct for verification
-typedef struct s_point
-{
-	int	x;
-	int	y;
-}	t_point;
-
-// vector of double (very useful)
-typedef struct s_vector
-{
-	double	x;
-	double	y;
-}	t_vector;
-
-//Map configuration struct
-typedef struct s_mapconf
-{
-	char	*n_file;
-	char	*s_file;
-	char	*w_file;
-	char	*e_file;
-	int		f_color;
-	int		c_color;
-	int		map_x;
-	int		map_y;
-}	t_mapconf;
-
-//Images struct
-typedef struct s_img
-{
-	int		size_x;
-	int		size_y;
-	void	*n;
-	void	*s;
-	void	*w;
-	void	*e;
-}	t_img;
-
-// Image datas to print pixels in it.
-typedef struct s_pimg
-{
-	void	*img_ptr;
-	int		*data;
-	int		size_l;
-	int		bpp;
-	int		endian;
-}	t_pimg;
-
-// Camera datas.
-typedef struct s_cam
-{
-	t_vector	start;
-	t_vector	end;
-	double		x;
-}	t_cam;
-
-// Line to print datas.
-typedef struct s_line
-{
-	int		start;
-	int		end;
-	int		height;
-	double	wall_dist;
-}	t_line;
-
-typedef struct s_texture
-{
-	void	*ptr;
-	int		*data;
-	int		size_l;
-	int		bpp;
-	int		endian;
-}	t_texture;
-
-// Datas of the trexture such as positions, color ..., 
-typedef struct s_printtex
-{
-	unsigned int	color;
-	int				tex_x;
-	double			wallx;
-	double			step;
-	double			texpos;
-	double			tex_y;
-	double			tex_pos;
-}	t_printtex;
-
-//Player struct
-typedef struct s_player
-{
-	char			side;
-	char			player;
-	t_vector		pos;
-	t_vector		grid_coord;
-	t_vector		dir;
-	t_vector		plane;
-	t_point			map;
-	t_vector		ray_dir;
-	t_vector		side_ds;
-	t_vector		delta;
-	t_cam			cam;
-	t_point			step;
-	t_line			line;
-	int				hit;
-	int				is_side;
-	t_pimg			p_img;
-}	t_player;
-
-//Main struct
-typedef struct s_core
-{
-	void		*mlx;
-	void		*win;
-	void		*img;
-	int			win_x;
-	int			win_y;
-	char		**file;
-	t_mapconf	mapconf;
-	t_img		imgs;
-	char		**map;
-	t_player	player;
-	t_texture	tex_n;
-	t_texture	tex_s;
-	t_texture	tex_e;
-	t_texture	tex_w;
-}	t_core;
+# include "./cub3d_structs.h"
 
 //Init fuctions
 t_core		cb_init(char **argv);
@@ -222,16 +63,17 @@ void		cb_failrows(char **map, int i, int fd);
 //utils extra
 void		printmat(char **mat);
 void		cb_printmc(t_mapconf *mapconf);
-
 int			cb_makecolor(char *str);
 int			cb_exit(t_core *core);
+void		printcore(t_core core);
 
-// RAYCASTING AND PRINTING MAP
+// --  RAYCASTING AND PRINTING MAP  --
+// Get datas
+int			get_pos(t_mapconf mapconf, char **map, char pos);
 t_player	init_player_datas(t_core core);
 t_player	get_cam(t_core core, t_player pl);
 
-t_vector	sum_vectors(t_vector a, t_vector b);
-t_vector	sub_vectors(t_vector a, t_vector b);
+// start raycasting
 t_player	rc_start(t_core core);
 t_player	get_ray_and_positions(t_player player, int x);
 t_player	get_delta_dist(t_player player);
@@ -239,40 +81,31 @@ t_player	raycasting(t_player player, char **map);
 t_player	calculate_wall_dist(t_player player);
 t_player	calculate_height_line(t_player player);
 
+// printing map
 void		print_ceiling(t_core core, t_player pl, int x);
 void		print_floor(t_core core, t_player pl, int x);
 void		print_texture(t_core core, t_player pl, int x);
 void		print_3d_map(t_core core, t_player pl, int x);
-
-// KEY AND INPUT
-void		read_keys(t_core core);
-int			input(int key, t_core *core);
-int			get_pos(t_mapconf mapconf, char **map, char pos);
-
-// TESTING
-void		print_player_stuff(t_player *player);
-void		testing_border_detector(t_core *core);
-
-//MOVEMENTS
-
-void		printcore(t_core core);
-
 t_texture	get_correct_texture(t_core core, t_player pl);
-t_printtex	get_texture_datas(t_player pl);
-
 t_pimg		get_image_datas(t_core core);
 int			get_color_of_texture(t_core core, t_player pl, int x, int y);
+t_printtex	get_texture_datas(t_player pl);
+
+//movements
+void		read_keys(t_core core);
+int			input(int key, t_core *core);
 t_core		*rotation(t_core *core, char direction);
-int			check_limit_front(t_player pl, char **map);
-int			check_limit_back(t_player pl, char **map);
 t_core		*move_front(t_core *core);
 t_core		*move_back(t_core *core);
 t_core		*move_left(t_core *core);
 t_core		*move_right(t_core *core);
 
-int			get_cuadrant(t_player pl);
-int			check_quadrant_1(t_player pl, char **map);
-int			check_quadrant_3(t_player pl, char **map);
+// vectors operations
+t_vector	sum_vectors(t_vector a, t_vector b);
+t_vector	sub_vectors(t_vector a, t_vector b);
 
+// TESTING
+void		print_player_stuff(t_player *player);
+void		testing_border_detector(t_core *core);
 void		printmap(char **mat);
 #endif
