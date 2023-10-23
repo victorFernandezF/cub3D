@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 11:29:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/19 13:28:14 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/23 12:08:03 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	print_player_stuff(t_player *player)
 		player->map.x, player->map.y, G);
 	print_test2(player);
 }
+
 void	printmap(char **mat)
 {
 	int	i;

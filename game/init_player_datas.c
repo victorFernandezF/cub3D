@@ -6,11 +6,10 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:09:29 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/23 11:42:53 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/23 12:01:52 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
 #include "../includes/cub3d.h"
 
 static int	is_player(char c)
