@@ -5,7 +5,7 @@ Vamos a ir dibujando lineas verticales.
 
 Antes de empezar el raycasting, tenemos que definir algunos datos que vamos a necesitar.
 
-<a href="./documentacion.md"> Ver datos de las estructuras</a>
+<a href="./structs.md"> Ver datos de las estructuras</a>
 
 ## datos del jugador (struct player)
 Coordenadas del jugador, es la posicion 'x' e 'y' del jugador en el mapa.

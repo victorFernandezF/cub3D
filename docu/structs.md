@@ -14,11 +14,6 @@ Igual que point, pero en lugar de enteros son doubles 'x' e 'y'. Usado para alma
 - bpp -> bits por pixel
 - endian -> ¿¿??
 
-## cam
-- start ->
-- end ->
-- x -> coordenada x de la cámara en el plano. 0 = centro de la pantalla, -1 = lado izquierdo y 1 = lado derecho.
-
 ## line
 - start -> donde comienza la linea que se quiere imprimir.
 - end -> donde termina la linea que se quiere imprimir.
