@@ -16,10 +16,10 @@ SRC = 		src/cub3d.c \
 			src/utils/utils_map.c \
 			src/utils/utils_params.c \
 			src/utils/utils_debug.c \
-			game/player_datas.c \
+			game/init_player_datas.c \
 			game/raycasting.c\
-			game/raycasting_2.c\
-			game/player_utils.c \
+			game/raycasting_utils.c\
+			game/vector_operations.c\
 			game/print.c \
 			game/print_test.c \
 			game/keys.c \
@@ -36,7 +36,20 @@ CFLAGS = -Wall -Werror -Wextra
 
 NAME = cub3D
 
-all: $(NAME)
+B	= \033[0;96m
+E	= \033[0m
+
+all: nice_text $(NAME)
+
+nice_text:
+	@echo "$(B)"
+	@echo " ██████╗██╗   ██╗██████╗ ██████╗ ██████╗ "
+	@echo "██╔════╝██║   ██║██╔══██╗╚════██╗██╔══██╗"
+	@echo "██║     ██║   ██║██████╔╝ █████╔╝██║  ██║"
+	@echo "██║     ██║   ██║██╔══██╗ ╚═══██╗██║  ██║"
+	@echo "╚██████╗╚██████╔╝██████╔╝██████╔╝██████╔╝"
+	@echo " ╚═════╝ ╚═════╝ ╚═════╝ ╚═════╝ ╚═════╝"
+	@echo "$(E)" 
 
 $(NAME): $(OSRC)
 	make -C libft
