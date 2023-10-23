@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 11:31:19 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/23 11:58:24 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/23 18:14:35 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int			cb_exit(t_core *core);
 void		printcore(t_core core);
 
 // --  RAYCASTING AND PRINTING MAP  --
+void		check_max_speed(void);
 // Get datas
 int			get_pos(t_mapconf mapconf, char **map, char pos);
 t_player	init_player_datas(t_core core);

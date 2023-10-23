@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:23:39 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/23 11:43:26 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/23 18:13:59 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ t_player	rc_start(t_core core)
 	t_player	player;
 	int			x;
 
+	check_max_speed();
 	core = get_texture_data(core);
 	player = core.player;
 	x = -1;

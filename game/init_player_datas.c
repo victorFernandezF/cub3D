@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_datas.c                                     :+:      :+:    :+:   */
+/*   init_player_datas.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:09:29 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/23 12:01:52 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/23 18:13:41 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,15 @@ t_pimg	get_image_datas(t_core core)
 	img.data = (int *)mlx_get_data_addr(img.img_ptr,
 			&img.bpp, &img.size_l, &img.endian);
 	return (img);
+}
+
+void	check_max_speed(void)
+{
+	if (MSPEED >= 2)
+	{
+		ft_putstr_fd("Error\nMovement speed is too hight\n", 2);
+		exit(-1);
+	}
 }
 
 t_player	init_player_datas(t_core core)
