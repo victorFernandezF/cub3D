@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:23:39 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/23 10:30:48 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/23 11:43:26 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ t_player	rc_start(t_core core)
 	core = get_texture_data(core);
 	player = core.player;
 	x = -1;
-	while (++x < WIDTH)
+	while (++x < DWIN_X)
 	{
 		player = get_ray_and_positions(player, x);
 		player = get_delta_dist(player);

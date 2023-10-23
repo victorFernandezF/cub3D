@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 13:56:38 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/23 11:04:06 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/23 11:43:14 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	print_ceiling(t_core core, t_player pl, int x)
 	start = pl.line.start;
 	color = core.mapconf.c_color;
 	while (++y < start)
-		pl.p_img.data[y * WIDTH + x] = color;
-	pl.p_img.data[(pl.line.start - 1) * WIDTH + x] = cb_makecolor("0,0,0");
+		pl.p_img.data[y * DWIN_X + x] = color;
+	pl.p_img.data[(pl.line.start - 1) * DWIN_X + x] = cb_makecolor("0,0,0");
 }
 
 void	print_floor(t_core core, t_player pl, int x)
@@ -33,10 +33,10 @@ void	print_floor(t_core core, t_player pl, int x)
 	int	color;
 
 	y = pl.line.end - 1;
-	pl.p_img.data[(pl.line.end - 1) * WIDTH + x] = cb_makecolor("0,0,0");
+	pl.p_img.data[(pl.line.end - 1) * DWIN_X + x] = cb_makecolor("0,0,0");
 	color = core.mapconf.f_color;
-	while (++y < HEIGHT)
-		pl.p_img.data[y * WIDTH + x] = color;
+	while (++y < DWIN_Y)
+		pl.p_img.data[y * DWIN_X + x] = color;
 }
 
 void	print_texture(t_core core, t_player pl, int x)
@@ -55,7 +55,7 @@ void	print_texture(t_core core, t_player pl, int x)
 		tex.tex_y = (int)tex.texpos & (IMGS_X - 1);
 		tex.texpos += tex.step;
 		tex.color = tex_tmp.data[(int)(tex.tex_y * IMGS_X + tex.tex_x)];
-		pl.p_img.data[y * WIDTH + x] = tex.color;
+		pl.p_img.data[y * DWIN_X + x] = tex.color;
 	}
 }
 

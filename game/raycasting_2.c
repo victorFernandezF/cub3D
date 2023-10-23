@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 12:25:59 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/17 17:51:50 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/23 11:43:23 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_player	get_ray_and_positions(t_player player, int x)
 {
-	player.cam.x = 2 * x / (double) WIDTH - 1;
+	player.cam.x = 2 * x / (double) DWIN_X - 1;
 	player.ray_dir.x = player.dir.x + player.plane.x * player.cam.x;
 	player.ray_dir.y = player.dir.y + player.plane.y * player.cam.x;
 	player.map.x = (int)player.pos.x;
@@ -34,12 +34,12 @@ t_player	calculate_wall_dist(t_player player)
 
 t_player	calculate_height_line(t_player player)
 {
-	player.line.height = (int)(HEIGHT / player.line.wall_dist);
-	player.line.start = -player.line.height / 2 + HEIGHT / 2;
+	player.line.height = (int)(DWIN_Y / player.line.wall_dist);
+	player.line.start = -player.line.height / 2 + DWIN_Y / 2;
 	if (player.line.start < 0)
 		player.line.start = 0;
-	player.line.end = player.line.height / 2 + HEIGHT / 2;
-	if (player.line.end >= HEIGHT)
-		player.line.end = HEIGHT - 1;
+	player.line.end = player.line.height / 2 + DWIN_Y / 2;
+	if (player.line.end >= DWIN_Y)
+		player.line.end = DWIN_Y - 1;
 	return (player);
 }

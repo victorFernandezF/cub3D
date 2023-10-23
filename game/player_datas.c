@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:09:29 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/20 13:33:23 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/23 11:42:53 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ t_pimg	get_image_datas(t_core core)
 {
 	t_pimg	img;
 
-	img.img_ptr = mlx_new_image(core.mlx, WIDTH, HEIGHT);
+	img.img_ptr = mlx_new_image(core.mlx, DWIN_X, DWIN_Y);
 	img.data = (int *)mlx_get_data_addr(img.img_ptr,
 			&img.bpp, &img.size_l, &img.endian);
 	return (img);

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:58:38 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/20 13:33:14 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/23 11:39:10 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ t_printtex	get_texture_datas(t_player pl)
 	if (pl.is_side == 1 && pl.ray_dir.y < 0)
 			tex.tex_x = IMGS_X - tex.tex_x - 1;
 	tex.step = 1.0 * IMGS_X / pl.line.height;
-	tex.texpos = (pl.line.start - HEIGHT / 2 + pl.line.height / 2) * tex.step;	
+	tex.texpos = (pl.line.start - DWIN_Y / 2 + pl.line.height / 2) * tex.step;	
 	return (tex);
 }
