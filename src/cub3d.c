@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:03:35 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/23 18:39:28 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/24 18:18:03 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	atexit(ft_leaks);
+	check_max_speed();
 	core = cb_init(argv);
 	core.player = init_player_datas(core);
 	mlx_hook(core.win, 17, 0, cb_exit, &core);

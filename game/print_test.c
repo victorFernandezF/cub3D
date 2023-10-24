@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 11:29:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/23 12:08:03 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/24 18:24:34 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,6 @@ void	print_player_stuff(t_player *player)
 		player->dir.x, player->dir.y);
 	printf(" player plane (%.2f, %.2f)%s\n",
 		player->plane.x, player->plane.y, G);
-	printf(" player cam_start(%.2f, %.2f)%s\n",
-		player->cam.start.x, player->cam.start.y, G);
-	printf(" player cam_end(%.2f, %.2f)%s\n",
-		player->cam.end.x, player->cam.end.y, G);
 	printf(" player map pos(%i, %i)%s\n",
 		player->map.x, player->map.y, G);
 	print_test2(player);

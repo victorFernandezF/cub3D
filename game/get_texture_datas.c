@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:58:38 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/23 12:18:01 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/24 18:30:40 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 t_texture	get_correct_texture(t_core core, t_player pl)
 {
-	t_texture	tex_tmp;
-
 	if (pl.side == 'N')
-		tex_tmp = core.tex_n;
+		return (core.tex_n);
 	if (pl.side == 'S')
-		tex_tmp = core.tex_s;
+		return (core.tex_s);
 	if (pl.side == 'E')
-		tex_tmp = core.tex_e;
+		return (core.tex_e);
 	if (pl.side == 'W')
-		tex_tmp = core.tex_w;
-	return (tex_tmp);
+		return (core.tex_w);
+	return (core.tex_n);
 }
 
 t_printtex	get_texture_datas(t_player pl)

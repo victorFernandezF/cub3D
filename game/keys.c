@@ -6,11 +6,20 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/23 18:06:51 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/24 18:16:14 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+void	check_max_speed(void)
+{
+	if (MSPEED >= 2)
+	{
+		ft_putstr_fd("\nError\nMovement speed is too hight. Must be < 2\n\n", 2);
+		exit(-1);
+	}
+}
 
 int	input(int key, t_core *core)
 {

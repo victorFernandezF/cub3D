@@ -19,7 +19,6 @@ SRC = 		src/cub3d.c \
 			game/init_player_datas.c \
 			game/raycasting.c\
 			game/raycasting_utils.c\
-			game/vector_operations.c\
 			game/print.c \
 			game/keys.c \
 			game/movements.c \
