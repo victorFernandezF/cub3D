@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 12:58:54 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/17 13:41:53 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/24 09:09:41 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,4 @@ char	*cb_fillrows_full(char *s, int size)
 	}
 	tmp[i] = '\0';
 	return (tmp);
-}
-
-int	cb_size_y(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i])
-		i++;
-	return (i);
 }

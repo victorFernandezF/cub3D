@@ -6,13 +6,14 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:08:08 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/17 13:47:34 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/24 09:04:34 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
 int	cb_size_y(char **map);
+int	cb_size_x(char **map);
 
 void	cb_divfile(t_core *core)
 {
@@ -31,7 +32,7 @@ void	cb_divfile(t_core *core)
 	}
 	core->map = cb_getmap_fill(core->file);
 	core->mapconf.map_y = cb_size_y(core->map);
-	core->mapconf.map_x = cb_maxx(core->map);
+	core->mapconf.map_x = cb_size_x(core->map);
 	if (cb_map_elines(core->map) || !cb_closecheck(core))
 	{
 		ft_putstr_fd("Map error, exiting\n", 2);

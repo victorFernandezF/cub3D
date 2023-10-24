@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 09:44:54 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/17 13:46:44 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/24 09:03:53 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,36 @@ char	**cb_getmap_fill(char **file)
 	}
 	map[j] = NULL;
 	return (map);
+}
+
+int	cb_size_y(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+		i++;
+	return (i);
+}
+
+int	cb_size_x(char **map)
+{
+	int	i;
+	int	j;
+	int	m;
+
+	i = 0;
+	m = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+			j++;
+		if (j > m)
+			m = j;
+		i++;
+	}
+	return (m);
 }
 
 /*char	**cb_getmap(char **file)
