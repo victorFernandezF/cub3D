@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 13:56:38 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/23 11:43:14 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/25 13:02:38 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	print_texture(t_core core, t_player pl, int x)
 	end = pl.line.end;
 	while (++y < end)
 	{
-		tex.tex_y = (int)tex.texpos & (IMGS_X - 1);
+		tex.tex_y = (int)tex.texpos;
 		tex.texpos += tex.step;
 		tex.color = tex_tmp.data[(int)(tex.tex_y * IMGS_X + tex.tex_x)];
 		pl.p_img.data[y * DWIN_X + x] = tex.color;
