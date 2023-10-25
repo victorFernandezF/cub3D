@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 18:20:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/17 18:15:31 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:46:55 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ t_core	*move_right(t_core *core)
 	return (core);
 }
 
-// Rotate playerw
+// Rotate player
 t_core	*rotation(t_core *core, char direction)
 {
 	double	dirx;

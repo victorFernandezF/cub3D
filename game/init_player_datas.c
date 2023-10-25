@@ -6,27 +6,27 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:09:29 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/24 18:24:52 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:12:47 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
+// Checks if a character is a player or not.
 static int	is_player(char c)
 {
 	return (c == 'N' || c == 'W' || c == 'S' || c == 'E');
 }
 
-int	get_pos(t_mapconf mapconf, char **map, char pos)
+// Returns a vector with the initial position of the player
+// in the map.
+t_vector	get_pos(t_mapconf mapconf, char **map)
 {
-	int	i;
-	int	j;
-	int	x;
-	int	y;
+	int			i;
+	int			j;
+	t_vector	tmp;
 
 	i = -1;
-	x = 0;
-	y = 0;
 	while (++i < mapconf.map_y)
 	{
 		j = -1;
@@ -34,16 +34,15 @@ int	get_pos(t_mapconf mapconf, char **map, char pos)
 		{
 			if (is_player(map[i][j]))
 			{
-				x = j;
-				y = i;
+				tmp.x = j;
+				tmp.y = i;
 			}
 		}
 	}
-	if (pos == 'x')
-		return (x);
-	return (y);
+	return (tmp);
 }
 
+// Set the plane depending on the initial direccion of the character.
 static t_player	get_plane(t_core core, t_player pl, int x, int y)
 {
 	if (core.map[y][x] == 'E')
@@ -69,6 +68,9 @@ static t_player	get_plane(t_core core, t_player pl, int x, int y)
 	return (pl);
 }
 
+// Creates a new image in which the map will be printed
+// Get its datas and stored in a structure. Later will be
+// inserted into de winsow.
 t_pimg	get_image_datas(t_core core)
 {
 	t_pimg	img;
@@ -79,6 +81,7 @@ t_pimg	get_image_datas(t_core core)
 	return (img);
 }
 
+// Set the initial values of the player struct.
 t_player	init_player_datas(t_core core)
 {
 	t_player	player;
@@ -93,8 +96,7 @@ t_player	init_player_datas(t_core core)
 	player.plane.y = 0;
 	player.dir.x = 0;
 	player.dir.y = 0;
-	player.grid_coord.x = get_pos(core.mapconf, core.map, 'x');
-	player.grid_coord.y = get_pos(core.mapconf, core.map, 'y');
+	player.grid_coord = get_pos(core.mapconf, core.map);
 	x = player.grid_coord.x;
 	y = player.grid_coord.y;
 	player.player = core.map[y][x];

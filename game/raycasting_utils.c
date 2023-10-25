@@ -6,12 +6,13 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 12:25:59 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/25 11:04:20 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:24:21 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
+// Gets ray direction and map positon of the player.
 t_player	get_ray_and_positions(t_player player, int x)
 {
 	player.cam_x = 2 * x / (double) DWIN_X - 1;
@@ -23,6 +24,7 @@ t_player	get_ray_and_positions(t_player player, int x)
 	return (player);
 }
 
+// Calculates the distance between the wall and the player
 t_player	calculate_wall_dist(t_player player)
 {
 	if (player.is_side == 0)
@@ -32,6 +34,7 @@ t_player	calculate_wall_dist(t_player player)
 	return (player);
 }
 
+// Calculates the height and ths start/end points of the wall line. 
 t_player	calculate_height_line(t_player player)
 {
 	player.line.height = (int)(DWIN_Y / player.line.wall_dist);
