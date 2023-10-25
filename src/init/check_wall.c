@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:22:27 by fortega-          #+#    #+#             */
-/*   Updated: 2023/09/20 08:49:38 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/25 08:43:46 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,4 +134,3 @@ void	cb_ff(char **tab, t_point size, t_point begin, int *f)
 		cb_ff4(tab, size, begin, f);
 	}
 }
-
