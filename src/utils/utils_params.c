@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 11:03:34 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/13 12:32:10 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/25 08:44:08 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,3 @@ bool	cb_is_mapln(char *line)
 	}
 	return (true);
 }
-
-
