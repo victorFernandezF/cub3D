@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/24 18:16:14 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/25 10:59:19 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	check_max_speed(void)
 {
 	if (MSPEED >= 2)
 	{
-		ft_putstr_fd("\nError\nMovement speed is too hight. Must be < 2\n\n", 2);
+		ft_putstr_fd("\nError\nMovement speed is too hight.\n", 2);
+		ft_putstr_fd(" * Must be < 2\n\n", 2);
 		exit(-1);
 	}
 }

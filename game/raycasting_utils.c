@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycasting_2.c                                     :+:      :+:    :+:   */
+/*   raycasting_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 12:25:59 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/23 11:43:23 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/25 11:04:20 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_player	get_ray_and_positions(t_player player, int x)
 {
-	player.cam.x = 2 * x / (double) DWIN_X - 1;
-	player.ray_dir.x = player.dir.x + player.plane.x * player.cam.x;
-	player.ray_dir.y = player.dir.y + player.plane.y * player.cam.x;
+	player.cam_x = 2 * x / (double) DWIN_X - 1;
+	player.ray_dir.x = player.dir.x + player.plane.x * player.cam_x;
+	player.ray_dir.y = player.dir.y + player.plane.y * player.cam_x;
 	player.map.x = (int)player.pos.x;
 	player.map.y = (int)player.pos.y;
 	player.hit = 0;
