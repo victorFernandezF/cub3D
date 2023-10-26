@@ -6,21 +6,25 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/24 18:16:14 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:15:07 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
+// Checks if the movement speed is bigger than 2 (that could
+// produce some errors in execution). If so, print an error message.
 void	check_max_speed(void)
 {
 	if (MSPEED >= 2)
 	{
-		ft_putstr_fd("\nError\nMovement speed is too hight. Must be < 2\n\n", 2);
+		ft_putstr_fd("\nError\nMovement speed is too hight.\n", 2);
+		ft_putstr_fd(" * Must be < 2\n\n", 2);
 		exit(-1);
 	}
 }
 
+// Evaluate the pressed key and call to de correct function.
 int	input(int key, t_core *core)
 {
 	if (key == K_ESC)

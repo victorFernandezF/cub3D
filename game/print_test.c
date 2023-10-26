@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 11:29:43 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/24 18:24:34 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/25 13:21:12 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	print_test2(t_player *player)
 		player->line.start, player->line.end, G);
 	printf(" player line points (%i, %i)%s\n\n",
 		player->line.start, player->line.end, G);
-	printf("test color (%i)%s\n\n", cb_makecolor("11,46,222"), W);
+	printf("test color (%i)%s\n\n", cb_makecolor("0,0,0"), W);
 }
 
 void	print_player_stuff(t_player *player)

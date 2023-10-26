@@ -6,12 +6,14 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 18:58:38 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/24 18:30:40 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:04:04 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
+// Returns a struct with the datas of the correct texture
+// depending on the side of the wall.
 t_texture	get_correct_texture(t_core core, t_player pl)
 {
 	if (pl.side == 'N')
@@ -25,6 +27,8 @@ t_texture	get_correct_texture(t_core core, t_player pl)
 	return (core.tex_n);
 }
 
+// Returns a struct with the datas that will be needed 
+// for printing thewalls
 t_printtex	get_texture_datas(t_player pl)
 {
 	t_printtex	tex;

@@ -6,12 +6,14 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 12:23:39 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/23 18:13:59 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:29:32 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
+// Calculate the deltaDist (the distance between the sideDist and
+// the next x/y side.)
 t_player	get_delta_dist(t_player player)
 {
 	if (player.ray_dir.x == 0)
@@ -25,6 +27,8 @@ t_player	get_delta_dist(t_player player)
 	return (player);
 }
 
+// Calculate the sideDist (the distance between the initial player
+// position and the first x/y side.)
 static t_player	calculate_side_dsst(t_player player)
 {
 	if (player.ray_dir.x < 0)
@@ -50,6 +54,8 @@ static t_player	calculate_side_dsst(t_player player)
 	return (player);
 }
 
+// Loop that will move the ray one cell of the map and check if
+// the ray hits a wall.
 t_player	raycasting(t_player player, char **map)
 {
 	while (player.hit == 0)
@@ -78,6 +84,7 @@ t_player	raycasting(t_player player, char **map)
 	return (player);
 }
 
+// Gets the data of every texture used in the map.
 t_core	get_texture_data(t_core core)
 {
 	core.tex_n.ptr = core.imgs.n;
@@ -95,6 +102,7 @@ t_core	get_texture_data(t_core core)
 	return (core);
 }
 
+// Starts the raycasting and calls the functions needed.
 t_player	rc_start(t_core core)
 {
 	t_player	player;

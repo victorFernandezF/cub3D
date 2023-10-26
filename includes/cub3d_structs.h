@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 11:46:17 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/24 18:21:37 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/25 11:06:52 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,14 +98,6 @@ typedef struct s_pimg
 	int		endian;
 }	t_pimg;
 
-// Camera datas.
-typedef struct s_cam
-{
-	t_vector	start;
-	t_vector	end;
-	double		x;
-}	t_cam;
-
 // Line to print datas.
 typedef struct s_line
 {
@@ -142,19 +134,19 @@ typedef struct s_player
 {
 	char			side;
 	char			player;
+	int				hit;
+	int				is_side;
+	double			cam_x;
 	t_vector		pos;
 	t_vector		grid_coord;
 	t_vector		dir;
 	t_vector		plane;
-	t_point			map;
 	t_vector		ray_dir;
 	t_vector		side_ds;
 	t_vector		delta;
-	t_cam			cam;
+	t_point			map;
 	t_point			step;
 	t_line			line;
-	int				hit;
-	int				is_side;
 	t_pimg			p_img;
 }	t_player;
 

@@ -34,8 +34,15 @@ CFLAGS = -Wall -Werror -Wextra
 
 NAME = cub3D
 
-B	= \033[0;96m
-E	= \033[0m
+# T E X T   S T U F F
+G		= \033[0;92m
+R		= \033[0;31m
+B		= \033[0;96m
+Y		= \033[0;33m
+WY		= \033[0;93m
+M		= \033[0;95m
+BOLD	= \033[0;1m
+E		= \033[0m
 
 all: nice_text $(NAME)
 
@@ -57,7 +64,11 @@ $(NAME): $(OSRC)
 	$(CC) $(CFLAGS) -o $(NAME) $(OSRC) -lft -lmlx -L. -framework OpenGL -framework AppKit
 
 norminette:
+	@echo " "
+	@echo "$(G) -- NORMINETE -- $(E)"
+	@echo " "
 	norminette $(SRC)
+
 clean:
 	make clean -C libft
 	make clean -C mlx
