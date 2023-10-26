@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 13:49:39 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/17 13:38:14 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/26 12:26:46 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	cb_examplefile(void)
 	printf("WE textures/test/west.xpm\t|\n");
 	printf("EA textures/test/east.xpm\t|-> Params in the begin\n");
 	printf("\t\t\t\t|\n");
-	printf("C 200,200,200\t\t\t|\n");
-	printf("F 100,200,150\t\t\t/\n");
+	printf("C 200, 200, 200\t\t\t|\n");
+	printf("F 100, 200, 150\t\t\t/\n");
 	printf("\n");
 	printf("11111\t\t\t\t\\\n");
 	printf("10001\t\t\t\t|\n");
@@ -32,6 +32,7 @@ void	cb_examplefile(void)
 	printf("10001\t\t\t\t|\n");
 	printf("10001\t\t\t\t|\n");
 	printf("11111\t\t\t\t/\n");
+	printf("\n");
 	printf("*****\n\n");
 }
 

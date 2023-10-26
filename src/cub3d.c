@@ -3,28 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:03:35 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/24 18:18:03 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/25 08:52:25 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	printcore(t_core core)
-{
-	printf("\nFile:\n");
-	printmat(core.file);
-	cb_printmc(&(core.mapconf));
-	printf("\nMAP: \n");
-	printmat(core.map);
-}
-
-void	ft_leaks(void)
-{
-	system("leaks -q cub3D");
-}
+void	ft_leaks(void);
 
 int	cb_exit(t_core *core)
 {

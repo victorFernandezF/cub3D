@@ -6,11 +6,16 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 08:38:18 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/25 08:44:33 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/25 08:52:29 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
+
+void	ft_leaks(void)
+{
+	system("leaks -q cub3D");
+}
 
 void	printmat(char **mat)
 {
@@ -22,6 +27,15 @@ void	printmat(char **mat)
 		ft_printf("str: <%s>\n", mat[i]);
 		i++;
 	}
+}
+
+void	printcore(t_core core)
+{
+	printf("\nFile:\n");
+	printmat(core.file);
+	cb_printmc(&(core.mapconf));
+	printf("\nMAP: \n");
+	printmat(core.map);
 }
 
 void	cb_printmc(t_mapconf *mapconf)
