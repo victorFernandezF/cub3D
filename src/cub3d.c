@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d2.c                                           :+:      :+:    :+:   */
+/*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:03:35 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/26 12:34:15 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/26 17:58:41 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int	main(int argc, char **argv)
 	check_max_speed();
 	core = cb_init(argv);
 	core.player = init_player_datas(core);
-	printcore(core);
 	mlx_hook(core.win, 17, 0, cb_exit, &core);
 	mlx_hook(core.win, 2, 0, input, &core);
 	core.player = rc_start(core);
