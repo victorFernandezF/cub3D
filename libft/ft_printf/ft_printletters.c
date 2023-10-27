@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 10:01:26 by fortega-          #+#    #+#             */
-/*   Updated: 2022/10/11 11:32:20 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/27 09:48:30 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_printstr(char *str, int *size)
 	{
 		ft_printstr("(null)", size);
 		return ;
-	}	
+	}
 	while (str[i])
 	{
 		ft_printchar(str[i], size);

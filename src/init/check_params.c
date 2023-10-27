@@ -6,7 +6,7 @@
 /*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 12:24:51 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/13 13:11:41 by fortega-         ###   ########.fr       */
+/*   Updated: 2023/10/27 09:46:38 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,8 @@ bool	cb_check_params(t_core *core)
 		return (false);
 	if (core->mapconf.c_color == -1)
 	{
-		ft_putstr_fd("Error\nCeiling color ex: C [0-255], [0-255], [0-255]\n", 2);
+		ft_putstr_fd("Error\n", 2);
+		ft_putstr_fd("Ceiling color ex: C [0-255], [0-255], [0-255]\n", 2);
 		return (false);
 	}
 	if (core->mapconf.f_color == -1)
