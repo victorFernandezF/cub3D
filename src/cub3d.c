@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fortega- <fortega-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 12:03:35 by fortega-          #+#    #+#             */
-/*   Updated: 2023/10/26 17:58:41 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/27 09:41:58 by fortega-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2 || (argc == 2 && !argv[1]))
 	{
-		printf("Error\nNeeded .cub map\n");
+		printf("Error\nNeeded one .cub map\n");
 		return (0);
 	}
 	atexit(ft_leaks);
