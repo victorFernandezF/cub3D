@@ -1,2 +1,2 @@
 # cub3D
-Graphic project
+Graphic project.
